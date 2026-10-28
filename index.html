@@ -301,15 +301,12 @@
                 <div style="margin-bottom: 20px; background: #fffbeb; padding: 15px; border-radius: 10px; border: 2px solid #fcd34d;">
                     <label style="font-size: 0.95rem; font-weight: bold; color: #92400e; display:block; margin-bottom:8px;">🎯 CHỌN CHUYÊN ĐỀ ÔN TẬP:</label>
                     <select id="topic-select" style="font-weight: bold; color: var(--primary); border-color: #fcd34d;">
-                      
                         <option value="mix"> KIỂM TRA CHƯƠNG 1 (NH 2026-2027) </option>
-            
                     </select>
                 </div>
 
                 <p id="start-error" style="color: var(--danger); text-align: center; font-weight: bold; margin-bottom: 15px; display: none;">⚠️ Vui lòng điền đầy đủ các thông tin!</p>
                 
-                <!-- BẮT ĐẦU CẬP NHẬT GIAO DIỆN NHẬP TÊN -->
                 <div style="margin-bottom: 15px; position: relative;">
                     <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 5px;">
                         <label style="font-size: 0.85rem; font-weight: bold; color: #64748b; margin-bottom:0;">Họ và tên:</label>
@@ -336,7 +333,6 @@
                         <input type="text" id="user_sbd" placeholder="Tự động điền" readonly>
                     </div>
                 </div>
-                <!-- KẾT THÚC CẬP NHẬT GIAO DIỆN NHẬP TÊN -->
 
                 <div class="grid-2-col">
                     <button id="btn-init-practice" class="btn btn-gray">LUYỆN TẬP</button>
@@ -374,7 +370,7 @@
             </div>
         </section>
 
-        <!-- Màn hình Admin ĐƯỢC CẬP NHẬT TAB -->
+        <!-- Màn hình Admin -->
         <section id="screen-admin" class="screen">
             <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
                 <h2 class="fire-text" style="margin:0; font-size: 1.5rem;">BẢNG QUẢN TRỊ CAO CẤP</h2>
@@ -515,11 +511,12 @@
 
         <footer>
             <div style="font-weight: 800; color: #cbd5e0; margin-bottom: 5px;">KIỂM TRA CHƯƠNG 1 NĂM HỌC 2026-2027</div>
-            <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THPT Nguyễn Trường Tộ, Thành phố Huế</div>
+            <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THCS Thủy Phương, Thành phố Huế[cite: 6, 14]</div>
         </footer>
     </div>
 </div>
 
+<!-- SCRIPT XỬ LÝ DỮ LIỆU VÀ GIAO DIỆN -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
 import { getAuth, signInAnonymously, onAuthStateChanged, setPersistence, browserSessionPersistence, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
@@ -541,19 +538,18 @@ const db = getFirestore(app);
 const appId_fixed = 'kham-pha-vat-ly-9'; 
 const collectionName = 'quiz_results'; 
 const collectionReports = 'error_reports';
-const collectionStudents = 'students_list'; // BỔ SUNG COLLECTION HỌC SINH
+const collectionStudents = 'students_list';
 
 let currentUser = null, quizStartTime = 0, isQuizRunning = false, mode = '', currentIdx = 0, userAnswers = {}, timeLeft = 0, timerInt, currentExam = [];
 let arExamData = [], arUserAnswers = {}; 
-let globalStudentList = []; // LƯU TRỮ DANH SÁCH HỌC SINH TỪ DB
+let globalStudentList = []; 
 
 let practiceTimeLimit = 2700;
 let testTimeLimit = 2700;
 let maxHintsAllowed = 3; 
 let hintsUsed = 0;       
 let unlockedHints = [];  
-
-let isAutoScaleEnabled = true; // Biến kiểm soát chế độ thu phóng màn hình PC
+let isAutoScaleEnabled = true;
 
 let canCheckCheat = false; 
 let isProcessingCheat = false;
@@ -562,329 +558,58 @@ let reportImageBase64 = "";
 let hasSaved = false;
 let pendingAuthAction = null; 
 let currentDeleteId = null;
-let importedStudentsCache = []; // Caching for excel import
+let importedStudentsCache = [];
 
 const audioPing = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
 const audioFinish = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3');
 
 // ==========================================
-  const ALL_BANKS = {
-    "KS_Vatli12": QUESTION_BANK, // Khớp với giá trị value trong thẻ <select id="topic-select">
-    "mix": QUESTION_BANK          // Dành cho chế độ đề tổng hợp
-};
-    // PHẦN I. TRẮC NGHIỆM ĐƠN (18 CÂU)
+// ĐỊNH NGHĨA CHÍNH XÁC QUESTION_BANK TRƯỚC
+// ==========================================
+const QUESTION_BANK = {
     bank_mcq: [
-        {
-            id: "1.1",
-            q: "Nhiệt dung riêng của một chất cho biết",
-            a: [
-                "A. nhiệt lượng cần thiết để làm cho vật nóng thêm 100 độ C.",
-                "B. nhiệt lượng tỏa ra khi khối lượng của vật giảm đi 1 kg.",
-                "C. nhiệt lượng cần cung cấp để 1 kg chất đó tăng thêm 1 K.",
-                "D. tổng nhiệt lượng mà vật đang tích trữ ở nhiệt độ hiện tại."
-            ],
-            c: 2,
-            ex: "Đáp án C đúng vì theo định nghĩa, nhiệt dung riêng của một chất là nhiệt lượng cần thiết để làm cho 1 kg chất đó tăng thêm 1 K (hoặc 1 độ C)."
-        },
-        {
-            id: "1.2",
-            q: "Hai vật có cùng khối lượng, vật 1 làm bằng đồng (c1 = 380 J/kg.K), vật 2 làm bằng nhôm (c2 = 880 J/kg.K). Nếu cung cấp cùng một nhiệt lượng",
-            a: [
-                "A. vật bằng đồng sẽ tăng nhiệt độ chậm hơn vật bằng nhôm.",
-                "B. vật bằng đồng sẽ tăng nhiệt độ nhanh hơn vật bằng nhôm.",
-                "C. cả hai vật đều tăng nhiệt độ như nhau do khối lượng bằng nhau.",
-                "D. nhiệt độ của vật bằng nhôm sẽ tăng gấp đôi vật bằng đồng."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì vật có nhiệt dung riêng nhỏ hơn ($c_1 < c_2$) thì thu nhiệt lượng như nhau sẽ tăng nhiệt độ nhanh hơn."
-        },
-        {
-            id: "1.3",
-            q: "Tại sao nước thường được dùng làm chất làm mát trong các động cơ ô tô?",
-            a: [
-                "A. Vì nước rẻ tiền và dễ tìm kiếm ở mọi nơi.",
-                "B. Vì nước có nhiệt dung riêng lớn nên thu được nhiều nhiệt mà ít tăng nhiệt độ.",
-                "C. Vì nước không gây cháy nổ khi tiếp xúc với các chi tiết máy nóng.",
-                "D. Vì nước có thể hòa tan được các chất cặn bẩn bên trong động cơ."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì nước có nhiệt dung riêng rất lớn ($4200\text{ J/kg.K}$), hấp thụ lượng nhiệt lớn mà nhiệt độ tăng lên không nhiều."
-        },
-        {
-            id: "1.4",
-            q: "Khi cung cấp cùng một nhiệt lượng cho các khối lượng bằng nhau của nước, rượu và dầu. Chất nào tăng nhiệt độ nhiều nhất? (Biết c_nước > c_rượu > c_dầu)",
-            a: [
-                "A. Nước.",
-                "B. Rượu.",
-                "C. Dầu.",
-                "D. Cả ba tăng như nhau."
-            ],
-            c: 2,
-            ex: "Đáp án C đúng vì chất nào có nhiệt dung riêng nhỏ nhất ($c_{\text{dầu}}$ nhỏ nhất) thì khi nhận cùng nhiệt lượng sẽ tăng nhiệt độ nhiều nhất."
-        },
-        {
-            id: "1.5",
-            q: "Để xác định nhiệt dung riêng của một kim loại, ta cần các dụng cụ tối thiểu là",
-            a: [
-                "A. cân, thước dây, lực kế.",
-                "B. cân, nhiệt kế, nhiệt lượng kế.",
-                "C. nhiệt kế, đồng hồ bấm giây, ống đong.",
-                "D. lực kế, nhiệt kế, bình tràn."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì để đo nhiệt dung riêng ta cần cân (đo khối lượng), nhiệt kế (đo nhiệt độ) và nhiệt lượng kế (đựng chất và trao đổi nhiệt)."
-        },
-        {
-            id: "1.6",
-            q: "Khi một chất rắn bắt đầu nóng chảy, nhiệt độ của nó sẽ",
-            a: [
-                "A. tăng dần cho đến khi tan hết.",
-                "B. giảm đi do thu nhiệt từ bên ngoài.",
-                "C. không thay đổi cho đến khi nóng chảy hoàn toàn.",
-                "D. biến thiên liên tục tùy vào công suất nguồn nhiệt."
-            ],
-            c: 2,
-            ex: "Đáp án C đúng vì trong suốt quá trình nóng chảy của chất rắn kết tinh, nhiệt độ của chất giữ nguyên không đổi."
-        },
-        {
-            id: "1.7",
-            q: "Nhiệt lượng cần cung cấp để làm nóng chảy hoàn toàn m (kg) vật rắn tỉ lệ thuận với",
-            a: [
-                "A. nhiệt độ nóng chảy của chất đó.",
-                "B. khối lượng của vật rắn.",
-                "C. thể tích ban đầu của vật rắn.",
-                "D. thời gian đun vật rắn đến khi sôi."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì công thức tính nhiệt lượng nóng chảy là $Q = \lambda \cdot m$, trong đó $Q$ tỉ lệ thuận với khối lượng $m$."
-        },
-        {
-            id: "1.8",
-            q: "Tại sao trong suốt quá trình nóng chảy, dù ta vẫn cung cấp nhiệt lượng nhưng nhiệt độ của vật không tăng?",
-            a: [
-                "A. Vì nhiệt lượng đó đã bị thất thoát hết ra môi trường xung quanh.",
-                "B. Vì nhiệt lượng đó dùng để phá vỡ liên kết giữa các phân tử trong cấu trúc chất rắn.",
-                "C. Vì nhiệt năng đã chuyển hóa thành động năng của toàn bộ vật.",
-                "D. Vì các phân tử chất rắn không còn khả năng hấp thụ nhiệt thêm nữa."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì nhiệt lượng cung cấp trong giai đoạn này dùng hoàn toàn để phá vỡ liên kết tinh thể chứ không làm tăng động năng (nhiệt độ)."
-        },
-        {
-            id: "1.9",
-            q: "Nhiệt nóng chảy riêng của một chất phụ thuộc vào",
-            a: [
-                "A. khối lượng của khối chất đó.",
-                "B. nhiệt lượng cung cấp cho khối chất.",
-                "C. bản chất của chất đó.",
-                "D. hình dạng của khối chất đó."
-            ],
-            c: 2,
-            ex: "Đáp án C đúng vì nhiệt nóng chảy riêng là đại lượng đặc trưng cho bản chất của chất làm vật."
-        },
-        {
-            id: "1.10",
-            q: "Khi chất lỏng đông đặc thành chất rắn, chất đó sẽ",
-            a: [
-                "A. thu nhiệt lượng từ môi trường.",
-                "B. tỏa nhiệt lượng ra môi trường.",
-                "C. không trao đổi nhiệt với môi trường.",
-                "D. tăng nhiệt độ cho đến khi đông hết."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì quá trình chuyển từ thể lỏng sang thể rắn (đông đặc) là quá trình tỏa nhiệt."
-        },
-        {
-            id: "1.11",
-            q: "Khi đổ một ít cồn lên da, ta cảm thấy lạnh là vì",
-            a: [
-                "A. cồn truyền nhiệt lạnh trực tiếp vào bề mặt da.",
-                "B. cồn thu nhiệt từ da để bay hơi nhanh chóng.",
-                "C. da tỏa nhiệt ra không khí xung quanh lớp cồn.",
-                "D. cồn làm bít lỗ chân lông ngăn nhiệt thoát ra."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì cồn bay hơi thu nhiệt từ cơ thể (da), làm khu vực da đó bị giảm nhiệt độ nên ta thấy lạnh."
-        },
-        {
-            id: "1.12",
-            q: "Khi một khối chất lỏng hóa hơi, nội năng của nó thay đổi thế nào?",
-            a: [
-                "A. Nội năng giảm do nhiệt độ không đổi.",
-                "B. Nội năng tăng do hấp thụ nhiệt từ ngoài.",
-                "C. Nội năng không đổi vì nhiệt độ được giữ nguyên.",
-                "D. Nội năng giảm do các phân tử bay đi mất."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì quá trình hóa hơi chất lỏng phải thu nhiệt lượng từ bên ngoài, làm tăng nội năng."
-        },
-        {
-            id: "1.13",
-            q: "Trong quá trình chất lỏng hóa hơi ở nhiệt độ sôi, nhiệt năng mà chất nhận được dùng để làm gì?",
-            a: [
-                "A. Làm tăng tốc độ chuyển động của các phân tử chất lỏng.",
-                "B. Thắng lực liên kết giữa các phân tử để chúng thoát ra ngoài.",
-                "C. Làm tăng nhiệt độ của hơi thoát ra so với nhiệt độ chất lỏng.",
-                "D. Làm giảm khoảng cách trung bình giữa các phân tử chất lỏng."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì nhiệt độ sôi không đổi, nhiệt lượng nhận được dùng để thắng lực liên kết phân tử để chuyển thành thể khí."
-        },
-        {
-            id: "1.14",
-            q: "Khi hai vật tiếp xúc nhau mà không có sự truyền nhiệt giữa chúng thì hai vật đó ở trạng thái",
-            a: [
-                "A. cân bằng khối lượng.",
-                "B. cân bằng nhiệt.",
-                "C. cùng thể tích.",
-                "D. cân bằng áp suất."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì khi hai vật có cùng nhiệt độ thì không có sự truyền nhiệt, gọi là trạng thái cân bằng nhiệt."
-        },
-        {
-            id: "1.15",
-            q: "Phát biểu nào sau đây là đúng khi nói về nhiệt kế chất lỏng?",
-            a: [
-                "A. Hoạt động dựa trên sự thay đổi điện trở của vật liệu.",
-                "B. Hoạt động dựa trên sự dãn nở vì nhiệt của chất lỏng.",
-                "C. Chỉ có thể dùng để đo nhiệt độ của các vật rắn.",
-                "D. Có độ chính xác cao hơn hẳn các loại nhiệt kế điện tử."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì nhiệt kế chất lỏng hoạt động dựa trên hiện tượng dãn nở vì nhiệt của chất lỏng (thủy ngân hoặc rượu)."
-        },
-        {
-            id: "1.16",
-            q: "Ưu điểm của nhiệt kế y tế điện tử so với nhiệt kế y tế thủy ngân là gì?",
-            a: [
-                "A. Giá thành rẻ hơn và dễ mua hơn.",
-                "B. Thời gian đo nhanh và an toàn hơn khi rơi vỡ.",
-                "C. Không cần sử dụng pin hay nguồn điện.",
-                "D. Có thể đo được nhiệt độ cao lên tới hàng nghìn độ."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì nhiệt kế điện tử đo nhanh và tuyệt đối an toàn (không chứa thủy ngân độc hại khi vỡ)."
-        },
-        {
-            id: "1.17",
-            q: "Nội năng của một vật phụ thuộc vào các thông số nào sau đây?",
-            a: [
-                "A. Khối lượng và vận tốc của vật.",
-                "B. Nhiệt độ và thể tích của vật.",
-                "C. Áp suất và khối lượng của vật.",
-                "D. Độ cao của vật so với mặt đất."
-            ],
-            c: 1,
-            ex: "Đáp án B đúng vì nội năng của vật phụ thuộc vào nhiệt độ và thể tích của vật."
-        },
-        {
-            id: "1.18",
-            q: "Lực tương tác giữa các phân tử ở thể khí có đặc điểm nào sau đây?",
-            a: [
-                "A. Rất yếu so với ở thể lỏng và thể rắn.",
-                "B. Rất mạnh, giữ cho các phân tử ở gần nhau.",
-                "C. Luôn là lực đẩy trong mọi khoảng cách.",
-                "D. Không phụ thuộc vào khoảng cách giữa các phân tử."
-            ],
-            c: 0,
-            ex: "Đáp án A đúng vì khoảng cách giữa các phân tử chất khí rất lớn nên lực tương tác phân tử rất yếu."
-        }
+        { id: "1.1", q: "Nhiệt dung riêng của một chất cho biết", o: ["A. nhiệt lượng cần thiết để làm cho vật nóng thêm 100 độ C.", "B. nhiệt lượng tỏa ra khi khối lượng của vật giảm đi 1 kg.", "C. nhiệt lượng cần cung cấp để 1 kg chất đó tăng thêm 1 K.", "D. tổng nhiệt lượng mà vật đang tích trữ ở nhiệt độ hiện tại."], a: "C. nhiệt lượng cần cung cấp để 1 kg chất đó tăng thêm 1 K.", e: "Nhiệt dung riêng của một chất là nhiệt lượng cần thiết để làm cho 1 kg chất đó tăng thêm 1 K (hoặc 1 độ C)." },
+        { id: "1.2", q: "Hai vật có cùng khối lượng, vật 1 làm bằng đồng (c1 = 380 J/kg.K), vật 2 làm bằng nhôm (c2 = 880 J/kg.K). Nếu cung cấp cùng một nhiệt lượng", o: ["A. vật bằng đồng sẽ tăng nhiệt độ chậm hơn vật bằng nhôm.", "B. vật bằng đồng sẽ tăng nhiệt độ nhanh hơn vật bằng nhôm.", "C. cả hai vật đều tăng nhiệt độ như nhau do khối lượng bằng nhau.", "D. nhiệt độ của vật bằng nhôm sẽ tăng gấp đôi vật bằng đồng."], a: "B. vật bằng đồng sẽ tăng nhiệt độ nhanh hơn vật bằng nhôm.", e: "Vật có nhiệt dung riêng nhỏ hơn thì khi nhận cùng nhiệt lượng sẽ tăng nhiệt độ nhanh hơn." },
+        { id: "1.3", q: "Tại sao nước thường được dùng làm chất làm mát trong các động cơ ô tô?", o: ["A. Vì nước rẻ tiền và dễ tìm kiếm ở mọi nơi.", "B. Vì nước có nhiệt dung riêng lớn nên thu được nhiều nhiệt mà ít tăng nhiệt độ.", "C. Vì nước không gây cháy nổ khi tiếp xúc với các chi tiết máy nóng.", "D. Vì nước có thể hòa tan được các chất cặn bẩn bên trong động cơ."], a: "B. Vì nước có nhiệt dung riêng lớn nên thu được nhiều nhiệt mà ít tăng nhiệt độ.", e: "Nước có nhiệt dung riêng rất lớn ($4200\\text{ J/kg.K}$), giúp hấp thụ lượng nhiệt lớn mà nhiệt độ tăng lên không nhiều." },
+        { id: "1.4", q: "Khi cung cấp cùng một nhiệt lượng cho các khối lượng bằng nhau của nước, rượu và dầu. Chất nào tăng nhiệt độ nhiều nhất? (Biết c_nước > c_rượu > c_dầu)", o: ["A. Nước.", "B. Rượu.", "C. Dầu.", "D. Cả ba tăng như nhau."], a: "C. Dầu.", e: "Chất nào có nhiệt dung riêng nhỏ nhất thì khi nhận cùng một nhiệt lượng sẽ tăng nhiệt độ nhiều nhất." },
+        { id: "1.5", q: "Để xác định nhiệt dung riêng của một kim loại, ta cần các dụng cụ tối thiểu là", o: ["A. cân, thước dây, lực kế.", "B. cân, nhiệt kế, nhiệt lượng kế.", "C. nhiệt kế, đồng hồ bấm giây, ống đong.", "D. lực kế, nhiệt kế, bình tràn."], a: "B. cân, nhiệt kế, nhiệt lượng kế.", e: "Để đo nhiệt lượng và nhiệt dung riêng ta cần cân để đo khối lượng, nhiệt kế đo nhiệt độ và nhiệt lượng kế." },
+        { id: "1.6", q: "Khi một chất rắn bắt đầu nóng chảy, nhiệt độ của nó sẽ", o: ["A. tăng dần cho đến khi tan hết.", "B. giảm đi do thu nhiệt từ bên ngoài.", "C. không thay đổi cho đến khi nóng chảy hoàn toàn.", "D. biến thiên liên tục tùy vào công suất nguồn nhiệt."], a: "C. không thay đổi cho đến khi nóng chảy hoàn toàn.", e: "Trong suốt quá trình nóng chảy của chất rắn kết tinh, nhiệt độ của chất giữ nguyên không đổi." },
+        { id: "1.7", q: "Nhiệt lượng cần cung cấp để làm nóng chảy hoàn toàn m (kg) vật rắn tỉ lệ thuận với", o: ["A. nhiệt độ nóng chảy của chất đó.", "B. khối lượng của vật rắn.", "C. thể tích ban đầu của vật rắn.", "D. thời gian đun vật rắn đến khi sôi."], a: "B. khối lượng của vật rắn.", e: "Công thức tính nhiệt lượng nóng chảy là $Q = \\lambda \\cdot m$, trong đó $Q$ tỉ lệ thuận với khối lượng $m$." },
+        { id: "1.8", q: "Tại sao trong suốt quá trình nóng chảy, dù ta vẫn cung cấp nhiệt lượng nhưng nhiệt độ của vật không tăng?", o: ["A. Vì nhiệt lượng đó đã bị thất thoát hết ra môi trường xung quanh.", "B. Vì nhiệt lượng đó dùng để phá vỡ liên kết giữa các phân tử trong cấu trúc chất rắn.", "C. Vì nhiệt năng đã chuyển hóa thành động năng của toàn bộ vật.", "D. Vì các phân tử chất rắn không còn khả năng hấp thụ nhiệt thêm nữa."], a: "B. Vì nhiệt lượng đó dùng để phá vỡ liên kết giữa các phân tử trong cấu trúc chất rắn.", e: "Nhiệt lượng cung cấp trong giai đoạn này dùng hoàn toàn để phá vỡ liên kết tinh thể chứ không làm tăng động năng." },
+        { id: "1.9", q: "Nhiệt nóng chảy riêng của một chất phụ thuộc vào", o: ["A. khối lượng của khối chất đó.", "B. nhiệt lượng cung cấp cho khối chất.", "C. bản chất của chất đó.", "D. hình dạng của khối chất đó."], a: "C. bản chất của chất đó.", e: "Nhiệt nóng chảy riêng là đại lượng đặc trưng cho bản chất của chất làm vật." },
+        { id: "1.10", q: "Khi chất lỏng đông đặc thành chất rắn, chất đó sẽ", o: ["A. thu nhiệt lượng từ môi trường.", "B. tỏa nhiệt lượng ra môi trường.", "C. không trao đổi nhiệt với môi trường.", "D. tăng nhiệt độ cho đến khi đông hết."], a: "B. tỏa nhiệt lượng ra môi trường.", e: "Quá trình chuyển từ thể lỏng sang thể rắn (đông đặc) là quá trình tỏa nhiệt." },
+        { id: "1.11", q: "Khi đổ một ít cồn lên da, ta cảm thấy lạnh là vì", o: ["A. cồn truyền nhiệt lạnh trực tiếp vào bề mặt da.", "B. cồn thu nhiệt từ da để bay hơi nhanh chóng.", "C. da tỏa nhiệt ra không khí xung quanh lớp cồn.", "D. cồn làm bít lỗ chân lông ngăn nhiệt thoát ra."], a: "B. cồn thu nhiệt từ da để bay hơi nhanh chóng.", e: "Cồn bay hơi thu nhiệt từ cơ thể, làm khu vực da đó bị giảm nhiệt độ nên ta thấy lạnh." },
+        { id: "1.12", q: "Khi một khối chất lỏng hóa hơi, nội năng của nó thay đổi thế nào?", o: ["A. Nội năng giảm do nhiệt độ không đổi.", "B. Nội năng tăng do hấp thụ nhiệt từ ngoài.", "C. Nội năng không đổi vì nhiệt độ được giữ nguyên.", "D. Nội năng giảm do các phân tử bay đi mất."], a: "B. Nội năng tăng do hấp thụ nhiệt từ ngoài.", e: "Quá trình hóa hơi chất lỏng phải thu nhiệt lượng từ bên ngoài, làm tăng nội năng." },
+        { id: "1.13", q: "Trong quá trình chất lỏng hóa hơi ở nhiệt độ sôi, nhiệt năng mà chất nhận được dùng để làm gì?", o: ["A. Làm tăng tốc độ chuyển động của các phân tử chất lỏng.", "B. Thắng lực liên kết giữa các phân tử để chúng thoát ra ngoài.", "C. Làm tăng nhiệt độ của hơi thoát ra so với nhiệt độ chất lỏng.", "D. Làm giảm khoảng cách trung bình giữa các phân tử chất lỏng."], a: "B. Thắng lực liên kết giữa các phân tử để chúng thoát ra ngoài.", e: "Nhiệt độ sôi không đổi, nhiệt lượng nhận được dùng hoàn toàn để thắng lực liên kết phân tử." },
+        { id: "1.14", q: "Khi hai vật tiếp xúc nhau mà không có sự truyền nhiệt giữa chúng thì hai vật đó ở trạng thái", o: ["A. cân bằng khối lượng.", "B. cân bằng nhiệt.", "C. cùng thể tích.", "D. cân bằng áp suất."], a: "B. cân bằng nhiệt.", e: "Khi hai vật có cùng nhiệt độ thì không có sự truyền nhiệt qua lại giữa chúng." },
+        { id: "1.15", q: "Phát biểu nào sau đây là đúng khi nói về nhiệt kế chất lỏng?", o: ["A. Hoạt động dựa trên sự thay đổi điện trở của vật liệu.", "B. Hoạt động dựa trên sự dãn nở vì nhiệt của chất lỏng.", "C. Chỉ có thể dùng để đo nhiệt độ của các vật rắn.", "D. Có độ chính xác cao hơn hẳn các loại nhiệt kế điện tử."], a: "B. Hoạt động dựa trên sự dãn nở vì nhiệt của chất lỏng.", e: "Nhiệt kế chất lỏng hoạt động dựa trên hiện tượng dãn nở vì nhiệt của chất lỏng." },
+        { id: "1.16", q: "Ưu điểm của nhiệt kế y tế điện tử so với nhiệt kế y tế thủy ngân là gì?", o: ["A. Giá thành rẻ hơn và dễ mua hơn.", "B. Thời gian đo nhanh và an toàn hơn khi rơi vỡ.", "C. Không cần sử dụng pin hay nguồn điện.", "D. Có thể đo được nhiệt độ cao lên tới hàng nghìn độ."], a: "B. Thời gian đo nhanh và an toàn hơn khi rơi vỡ.", e: "Nhiệt kế điện tử đo nhanh và tuyệt đối an toàn vì không chứa thủy ngân độc hại." },
+        { id: "1.17", q: "Nội năng của một vật phụ thuộc vào các thông số nào sau đây?", o: ["A. Khối lượng và vận tốc của vật.", "B. Nhiệt độ và thể tích của vật.", "C. Áp suất và khối lượng của vật.", "D. Độ cao của vật so với mặt đất."], a: "B. Nhiệt độ và thể tích của vật.", e: "Nội năng của một vật phụ thuộc vào nhiệt độ và thể tích của vật đó." },
+        { id: "1.18", q: "Lực tương tác giữa các phân tử ở thể khí có đặc điểm nào sau đây?", o: ["A. Rất yếu so với ở thể lỏng và thể rắn.", "B. Rất mạnh, giữ cho các phân tử ở gần nhau.", "C. Luôn là lực đẩy trong mọi khoảng cách.", "D. Không phụ thuộc vào khoảng cách giữa các phân tử."], a: "A. Rất yếu so với ở thể lỏng và thể rắn.", e: "Khoảng cách giữa các phân tử chất khí rất lớn nên lực tương tác phân tử rất yếu." }
     ],
-
-    // PHẦN II. ĐÚNG / SAI (4 CÂU)
     bank_tf: [
-        {
-            id: "2.1",
-            context: "Nhiệt kế rượu được chế tạo với thành phần chính của chất lỏng trong nhiệt kế là rượu. Một nhiệt kế rượu thông thường có giới hạn đo từ -115°C đến 78,5°C.",
-            items: [
-                "a) Rượu được chọn làm nhiệt kế vì tính chất giãn nở đều theo nhiệt độ của nó.",
-                "b) Theo thang đo nhiệt độ Kelvin (làm tròn) thì giới hạn đo của nhiệt kế rượu kể trên là từ 158K đến 351,5K.",
-                "c) Có thể dùng nhiệt kế rượu để đo nhiệt độ sôi của nước.",
-                "d) Hoàn toàn có thể dùng nước tinh khiết để thay thế cho rượu làm nhiệt kế."
-            ],
-            c: [true, true, false, false],
-            ex: "Ý a đúng; ý b đúng ($-115 + 273,15 \approx 158\text{K}$; $78,5 + 273,15 = 351,65 \approx 351,5\text{K}$); ý c sai vì nước sôi ở $100^\circ\text{C}$ vượt quá giới hạn đo của rượu; ý d sai vì nước có sự dãn nở bất thường."
-        },
-        {
-            id: "2.2",
-            context: "Một học sinh tiến hành đun một khối nước đá đựng trong nhiệt lượng kế từ 0°C đến khi tan chảy hết thành nước và hóa hơi ở 100°C.",
-            items: [
-                "a) Trong đoạn BC trên đồ thị, khối nước nhận nhiệt lượng để thực hiện quá trình hóa hơi.",
-                "b) Giai đoạn đầu, nhiệt độ tăng thì nội năng của nước đá tăng.",
-                "c) Tại điểm bắt đầu đun, nước đá ở thể rắn hoàn toàn.",
-                "d) Quá trình hóa hơi của nước diễn ra ở nhiệt độ không đổi."
-            ],
-            c: [true, true, true, true],
-            ex: "Các ý a, b, c, d đều phản ánh chính xác các trạng thái nhiệt động lực học trong quá trình truyền nhiệt và chuyển thể của nước."
-        },
-        {
-            id: "2.3",
-            context: "Người ta cung cấp nhiệt lượng 20,6 J cho một lượng khí trong xilanh đặt nằm ngang. Khí nở ra đẩy pittông di chuyển đều đi được 4 cm, lực ma sát giữa pittông và xilanh là 15 N.",
-            items: [
-                "a) Trong quá trình trên, khí thực hiện công nên A < 0.",
-                "b) Trong quá trình trên, hệ nhận nhiệt lượng nên Q > 0.",
-                "c) Độ lớn của công mà chất khí thực hiện để pittông chuyển động đều là 60 J.",
-                "d) Độ biến thiên nội năng của khí là 20 J."
-            ],
-            c: [true, true, false, true],
-            ex: "Ý c sai vì công thực hiện $A = F_{\text{ms}} \cdot s = 15 \cdot 0,04 = 0,6\text{ J}$ (không phải $60\text{ J}$); ý d đúng vì $\Delta U = Q - A = 20,6 - 0,6 = 20\text{ J}$."
-        },
-        {
-            id: "2.4",
-            context: "Khi nung nóng một khối khí chứa trong một xilanh có pit-tông đóng kín làm cho nhiệt độ của khối khí tăng. Pit-tông này có thể dịch chuyển không ma sát trong xilanh.",
-            items: [
-                "a) Nhiệt độ của khối khí trong xilanh thay đổi do quá trình truyền nhiệt.",
-                "b) Khi cho pit-tông chuyển động tự do để khối khí dãn nở với áp suất không đổi, lúc này khối khí đã sinh công.",
-                "c) Khi giữ pit-tông để thể tích khí không đổi thì toàn bộ nhiệt lượng khối khí nhận được dùng để tăng nội năng của khí.",
-                "d) Khi nhận nhiệt, động năng trung bình của các phân tử khí là không đổi."
-            ],
-            c: [true, true, true, false],
-            ex: "Ý d sai vì khi nhận nhiệt làm nhiệt độ tăng thì động năng trung bình của các phân tử khí phải tăng."
-        }
+        { id: "2.1", ctx: "Nhiệt kế rượu được chế tạo với thành phần chính là rượu, giới hạn đo từ -115°C đến 78,5°C.", sts: [{ l: "a)", t: "Rượu được chọn làm nhiệt kế vì tính chất giãn nở đều theo nhiệt độ.", a: true }, { l: "b)", t: "Giới hạn đo theo thang Kelvin là từ khoảng 158K đến 351,5K.", a: true }, { l: "c)", t: "Có thể dùng nhiệt kế rượu để đo nhiệt độ sôi của nước.", a: false }, { l: "d)", t: "Hoàn toàn có thể dùng nước tinh khiết để thay thế rượu làm nhiệt kế.", a: false }], e: "Ý a, b đúng; ý c sai vì nước sôi ở 100°C vượt giới hạn rượu; ý d sai vì nước dãn nở bất thường." },
+        { id: "2.2", ctx: "Một học sinh đun nước đá từ 0°C đến khi hóa hơi hoàn toàn ở 100°C.", sts: [{ l: "a)", t: "Trong quá trình hóa hơi, nước nhận nhiệt lượng mà nhiệt độ không đổi.", a: true }, { l: "b)", t: "Giai đoạn đầu khi nhiệt độ tăng thì nội năng của nước đá tăng.", a: true }, { l: "c)", t: "Tại điểm bắt đầu đun, nước đá ở thể rắn hoàn toàn.", a: true }, { l: "d)", t: "Quá trình sôi của nước diễn ra ở nhiệt độ thay đổi liên tục.", a: false }], e: "Ý a, b, c đúng; ý d sai vì nhiệt độ sôi của nước giữ không đổi." },
+        { id: "2.3", ctx: "Cung cấp nhiệt lượng 20,6 J cho khí trong xilanh, khí nở ra đẩy pittông dịch chuyển 4 cm, lực ma sát 15 N.", sts: [{ l: "a)", t: "Chất khí nở ra thực hiện công nên nhận công âm.", a: true }, { l: "b)", t: "Hệ nhận nhiệt lượng từ ngọn lửa nên Q > 0.", a: true }, { l: "c)", t: "Công do chất khí thực hiện để thắng ma sát là 60 J.", a: false }, { l: "d)", t: "Độ biến thiên nội năng của khí là 20 J.", a: true }], e: "Ý c sai vì $A = F \\cdot s = 15 \\cdot 0,04 = 0,6\\text{ J}$; ý d đúng vì $\\Delta U = Q - A = 20,6 - 0,6 = 20\\text{ J}$." },
+        { id: "2.4", ctx: "Nung nóng khối khí trong xilanh có pit-tông dịch chuyển không ma sát.", sts: [{ l: "a)", t: "Nhiệt độ khối khí thay đổi do quá trình truyền nhiệt.", a: true }, { l: "b)", t: "Khi pit-tông dịch chuyển làm khí dãn nở, khối khí đã sinh công.", a: true }, { l: "c)", t: "Khi giữ cố định pit-tông, toàn bộ nhiệt lượng dùng để làm tăng nội năng.", a: true }, { l: "d)", t: "Khi nhận nhiệt làm tăng nhiệt độ, động năng phân tử không đổi.", a: false }], e: "Ý a, b, c đúng; ý d sai vì nhiệt độ tăng thì động năng trung bình phân tử tăng." }
     ],
-
-    // PHẦN III. TRẢ LỜI NGẮN (6 CÂU)
     bank_short: [
-        {
-            id: "3.1",
-            q: "Một ấm nước chứa 2 kg nước đang sôi ở 100 °C, tiếp tục được đun để chuyển hoàn toàn sang hơi nước. Biết nhiệt hóa hơi riêng của nước là $2,26 \cdot 10^6\text{ J/kg}$. Nhiệt lượng cần thiết để hóa hơi hoàn toàn lượng nước trong ấm là $X \cdot 10^6\text{ J}$. Giá trị của X là bao nhiêu?",
-            answer: "4,52",
-            ex: "$Q = m \cdot L = 2 \cdot 2,26 \cdot 10^6 = 4,52 \cdot 10^6\text{ J}$, suy ra $X = 4,52$."
-        },
-        {
-            id: "3.2",
-            q: "Một lượng nước đang sôi được hóa hơi hoàn toàn trong 5 phút bởi một bếp điện. Khối lượng nước là 0,4 kg, nhiệt hóa hơi riêng của nước là $2,26 \cdot 10^6\text{ J/kg}$. Công suất trung bình của bếp là bao nhiêu oát? (làm tròn đến phần nguyên)",
-            answer: "3013",
-            ex: "$Q = m \cdot L = 0,4 \cdot 2,26 \cdot 10^6 = 904000\text{ J}$. Thời gian $t = 5 \cdot 60 = 300\text{ s}$. Công suất $\mathcal{P} = Q / t = 904000 / 300 \approx 3013\text{ W}$."
-        },
-        {
-            id: "3.3",
-            q: "Nhiệt lượng cần cung cấp để làm nóng chảy hoàn toàn một cục nước đá 100 g ở 0 °C là $X \cdot 10^4\text{ J}$. Tìm X biết nhiệt nóng chảy riêng của nước đá là $3,4 \cdot 10^5\text{ J/kg}$.",
-            answer: "3,4",
-            ex: "$m = 0,1\text{ kg}$, $Q = m \cdot \lambda = 0,1 \cdot 3,4 \cdot 10^5 = 34000\text{ J} = 3,4 \cdot 10^4\text{ J}$, suy ra $X = 3,4$."
-        },
-        {
-            id: "3.4",
-            q: "Một chất nhận 6300 J để tăng nhiệt độ từ 20°C lên 70°C. Nhiệt dung riêng của chất là 420 J/kg.K. Khối lượng của chất là bao nhiêu kg?",
-            answer: "0,3",
-            ex: "Áp dụng công thức $Q = m \cdot c \cdot \Delta t \Rightarrow m = \frac{Q}{c \cdot \Delta t} = \frac{6300}{420 \cdot (70 - 20)} = \frac{6300}{21000} = 0,3\text{ kg}$."
-        },
-        {
-            id: "3.5",
-            q: "Một lượng nước có khối lượng 0,5 kg, nhiệt dung riêng là 4200 J/kg.K. Nếu đun trong 5 phút để nhiệt độ tăng từ 20°C lên 50°C thì công suất trung bình của bếp là bao nhiêu oát?",
-            answer: "210",
-            ex: "$Q = m \cdot c \cdot \Delta t = 0,5 \cdot 4200 \cdot (50 - 20) = 63000\text{ J}$. Thời gian $t = 300\text{ s}$. Công suất $\mathcal{P} = \frac{63000}{300} = 210\text{ W}$."
-        },
-        {
-            id: "3.6",
-            q: "Một vật có nội năng tăng thêm 250 J trong quá trình vừa nhận nhiệt từ môi trường vừa được nén lại bởi một lực cơ học. Nếu công nén là 100 J, nhiệt lượng vật nhận được trong quá trình đó là bao nhiêu Jun?",
-            answer: "150",
-            ex: "Theo định luật I nhiệt động lực học $\Delta U = Q + A$. Vì hệ nhận công nên $A = +100\text{ J}$. Suy ra $Q = \Delta U - A = 250 - 100 = 150\text{ J}$."
-        }
+        { id: "3.1", q: "Một ấm chứa 2 kg nước đang sôi ở 100°C tiếp tục đun để hóa hơi hoàn toàn. Biết $L = 2,26 \\cdot 10^6\\text{ J/kg}$. Nhiệt lượng cần thiết là $X \\cdot 10^6\\text{ J}$. Giá trị của X là bao nhiêu?", a: "4,52", e: "$Q = m \\cdot L = 2 \\cdot 2,26 \\cdot 10^6 = 4,52 \\cdot 10^6\\text{ J}$." },
+        { id: "3.2", q: "Hóa hơi hoàn toàn 0,4 kg nước đang sôi trong 5 phút ($L = 2,26 \\cdot 10^6\\text{ J/kg}$). Công suất trung bình của bếp là bao nhiêu Watt? (làm tròn phần nguyên)", a: "3013", e: "$Q = 0,4 \\cdot 2,26 \\cdot 10^6 = 904000\\text{ J}$. $\\mathcal{P} = 904000 / 300 \\approx 3013\\text{ W}$." },
+        { id: "3.3", q: "Nhiệt lượng cần cung cấp để làm nóng chảy hoàn toàn 100 g nước đá ở 0°C là $X \\cdot 10^4\\text{ J}$. Biết $\\lambda = 3,4 \\cdot 10^5\\text{ J/kg}$. Tìm X.", a: "3,4", e: "$Q = m \\cdot \\lambda = 0,1 \\cdot 3,4 \\cdot 10^5 = 34000\\text{ J} = 3,4 \\cdot 10^4\\text{ J}$." },
+        { id: "3.4", q: "Một chất nhận 6300 J để tăng nhiệt độ từ 20°C lên 70°C với $c = 420\\text{ J/kg.K}$. Khối lượng chất đó là bao nhiêu kg?", a: "0,3", e: "$m = Q / (c \\cdot \\Delta t) = 6300 / (420 \\cdot 50) = 0,3\\text{ kg}$." },
+        { id: "3.5", q: "Đun 0,5 kg nước ($c = 4200\\text{ J/kg.K}$) trong 5 phút tăng từ 20°C lên 50°C. Công suất trung bình của bếp là bao nhiêu Watt?", a: "210", e: "$Q = 0,5 \\cdot 4200 \\cdot 30 = 63000\\text{ J}$. $\\mathcal{P} = 63000 / 300 = 210\\text{ W}$." },
+        { id: "3.6", q: "Vật có nội năng tăng 250 J khi nhận nhiệt và bị nén với công nén 100 J. Nhiệt lượng vật nhận được là bao nhiêu Jun?", a: "150", e: "$\\Delta U = Q + A \\Rightarrow Q = \\Delta U - A = 250 - 100 = 150\\text{ J}$." }
     ]
 };
 
+// ==========================================
+// ĐỊNH NGHĨA ALL_BANKS SAU KHI QUESTION_BANK ĐÃ TỒN TẠI
+// ==========================================
+const ALL_BANKS = {
+    "KS_Vatli12": QUESTION_BANK,
+    "mix": QUESTION_BANK
+};
 // ==========================================
 
 function autoScaleApp() {
