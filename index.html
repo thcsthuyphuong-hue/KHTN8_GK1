@@ -511,7 +511,7 @@
 
         <footer>
             <div style="font-weight: 800; color: #cbd5e0; margin-bottom: 5px;">KIỂM TRA CHƯƠNG 1 NĂM HỌC 2026-2027</div>
-            <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THCS Thủy Phương, Thành phố Huế[cite: 6, 14]</div>
+            <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THPT Nguyễn Trường Tộ, Thành phố Huế[cite: 6, 14]</div>
         </footer>
     </div>
 </div>
@@ -1225,7 +1225,7 @@ document.getElementById('btn-ar-retry').onclick = () => {
 
 // EXCEL IMPORT & EXPORT ========================================
 document.getElementById('btn-download-template').onclick = () => {
-    const templateData = [{ "STT": 1, "Họ và Tên": "Nguyễn Văn A", "Lớp": "9/1", "SBD": "01", "Trường": "THCS Thanh Thuỷ" }, { "STT": 2, "Họ và Tên": "Trần Thị B", "Lớp": "9/2", "SBD": "02", "Trường": "THCS Thanh Thuỷ" }];
+    const templateData = [{ "STT": 1, "Họ và Tên": "Nguyễn Văn A", "Lớp": "9/1 hoặc 12/1", "SBD": "01", "Trường": "THPT / THPT ...." }, { "STT": 2, "Họ và Tên": "Trần Thị B", "Lớp": "9/2", "SBD": "02", "Trường": "THCS Thanh Thuỷ" }];
     const ws = XLSX.utils.json_to_sheet(templateData);
     ws['!cols'] = [{wch: 5}, {wch: 30}, {wch: 10}, {wch: 10}, {wch: 30}];
     const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "DanhSachHocSinh");
