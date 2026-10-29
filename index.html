@@ -511,7 +511,7 @@
 
         <footer>
             <div style="font-weight: 800; color: #cbd5e0; margin-bottom: 5px;">KIỂM TRA CHƯƠNG 1 NĂM HỌC 2026-2027</div>
-            <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THPT Nguyễn Trường Tộ, Thành phố Huế[cite: 6, 14]</div>
+            <div style="font-size: 0.85rem;">Bản quyền thuộc về Trường THCS Thủy Phương, Thành phố Huế[cite: 6, 14]</div>
         </footer>
     </div>
 </div>
@@ -567,7 +567,7 @@ const audioFinish = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing
 // ĐỊNH NGHĨA CHÍNH XÁC QUESTION_BANK TRƯỚC
 // ==========================================
 const QUESTION_BANK = {
-    mcq: [
+    bank_mcq: [
         { id: "1.1", q: "Nhiệt dung riêng của một chất cho biết", o: ["A. nhiệt lượng cần thiết để làm cho vật nóng thêm 100 độ C.", "B. nhiệt lượng tỏa ra khi khối lượng của vật giảm đi 1 kg.", "C. nhiệt lượng cần cung cấp để 1 kg chất đó tăng thêm 1 K.", "D. tổng nhiệt lượng mà vật đang tích trữ ở nhiệt độ hiện tại."], a: "C. nhiệt lượng cần cung cấp để 1 kg chất đó tăng thêm 1 K.", e: "Nhiệt dung riêng của một chất là nhiệt lượng cần thiết để làm cho 1 kg chất đó tăng thêm 1 K (hoặc 1 độ C)." },
         { id: "1.2", q: "Hai vật có cùng khối lượng, vật 1 làm bằng đồng (c1 = 380 J/kg.K), vật 2 làm bằng nhôm (c2 = 880 J/kg.K). Nếu cung cấp cùng một nhiệt lượng", o: ["A. vật bằng đồng sẽ tăng nhiệt độ chậm hơn vật bằng nhôm.", "B. vật bằng đồng sẽ tăng nhiệt độ nhanh hơn vật bằng nhôm.", "C. cả hai vật đều tăng nhiệt độ như nhau do khối lượng bằng nhau.", "D. nhiệt độ của vật bằng nhôm sẽ tăng gấp đôi vật bằng đồng."], a: "B. vật bằng đồng sẽ tăng nhiệt độ nhanh hơn vật bằng nhôm.", e: "Vật có nhiệt dung riêng nhỏ hơn thì khi nhận cùng nhiệt lượng sẽ tăng nhiệt độ nhanh hơn." },
         { id: "1.3", q: "Tại sao nước thường được dùng làm chất làm mát trong các động cơ ô tô?", o: ["A. Vì nước rẻ tiền và dễ tìm kiếm ở mọi nơi.", "B. Vì nước có nhiệt dung riêng lớn nên thu được nhiều nhiệt mà ít tăng nhiệt độ.", "C. Vì nước không gây cháy nổ khi tiếp xúc với các chi tiết máy nóng.", "D. Vì nước có thể hòa tan được các chất cặn bẩn bên trong động cơ."], a: "B. Vì nước có nhiệt dung riêng lớn nên thu được nhiều nhiệt mà ít tăng nhiệt độ.", e: "Nước có nhiệt dung riêng rất lớn ($4200\\text{ J/kg.K}$), giúp hấp thụ lượng nhiệt lớn mà nhiệt độ tăng lên không nhiều." },
@@ -587,13 +587,13 @@ const QUESTION_BANK = {
         { id: "1.17", q: "Nội năng của một vật phụ thuộc vào các thông số nào sau đây?", o: ["A. Khối lượng và vận tốc của vật.", "B. Nhiệt độ và thể tích của vật.", "C. Áp suất và khối lượng của vật.", "D. Độ cao của vật so với mặt đất."], a: "B. Nhiệt độ và thể tích của vật.", e: "Nội năng của một vật phụ thuộc vào nhiệt độ và thể tích của vật đó." },
         { id: "1.18", q: "Lực tương tác giữa các phân tử ở thể khí có đặc điểm nào sau đây?", o: ["A. Rất yếu so với ở thể lỏng và thể rắn.", "B. Rất mạnh, giữ cho các phân tử ở gần nhau.", "C. Luôn là lực đẩy trong mọi khoảng cách.", "D. Không phụ thuộc vào khoảng cách giữa các phân tử."], a: "A. Rất yếu so với ở thể lỏng và thể rắn.", e: "Khoảng cách giữa các phân tử chất khí rất lớn nên lực tương tác phân tử rất yếu." }
     ],
-    tf: [
+    bank_tf: [
         { id: "2.1", ctx: "Nhiệt kế rượu được chế tạo với thành phần chính là rượu, giới hạn đo từ -115°C đến 78,5°C.", sts: [{ l: "a)", t: "Rượu được chọn làm nhiệt kế vì tính chất giãn nở đều theo nhiệt độ.", a: true }, { l: "b)", t: "Giới hạn đo theo thang Kelvin là từ khoảng 158K đến 351,5K.", a: true }, { l: "c)", t: "Có thể dùng nhiệt kế rượu để đo nhiệt độ sôi của nước.", a: false }, { l: "d)", t: "Hoàn toàn có thể dùng nước tinh khiết để thay thế rượu làm nhiệt kế.", a: false }], e: "Ý a, b đúng; ý c sai vì nước sôi ở 100°C vượt giới hạn rượu; ý d sai vì nước dãn nở bất thường." },
         { id: "2.2", ctx: "Một học sinh đun nước đá từ 0°C đến khi hóa hơi hoàn toàn ở 100°C.", sts: [{ l: "a)", t: "Trong quá trình hóa hơi, nước nhận nhiệt lượng mà nhiệt độ không đổi.", a: true }, { l: "b)", t: "Giai đoạn đầu khi nhiệt độ tăng thì nội năng của nước đá tăng.", a: true }, { l: "c)", t: "Tại điểm bắt đầu đun, nước đá ở thể rắn hoàn toàn.", a: true }, { l: "d)", t: "Quá trình sôi của nước diễn ra ở nhiệt độ thay đổi liên tục.", a: false }], e: "Ý a, b, c đúng; ý d sai vì nhiệt độ sôi của nước giữ không đổi." },
         { id: "2.3", ctx: "Cung cấp nhiệt lượng 20,6 J cho khí trong xilanh, khí nở ra đẩy pittông dịch chuyển 4 cm, lực ma sát 15 N.", sts: [{ l: "a)", t: "Chất khí nở ra thực hiện công nên nhận công âm.", a: true }, { l: "b)", t: "Hệ nhận nhiệt lượng từ ngọn lửa nên Q > 0.", a: true }, { l: "c)", t: "Công do chất khí thực hiện để thắng ma sát là 60 J.", a: false }, { l: "d)", t: "Độ biến thiên nội năng của khí là 20 J.", a: true }], e: "Ý c sai vì $A = F \\cdot s = 15 \\cdot 0,04 = 0,6\\text{ J}$; ý d đúng vì $\\Delta U = Q - A = 20,6 - 0,6 = 20\\text{ J}$." },
         { id: "2.4", ctx: "Nung nóng khối khí trong xilanh có pit-tông dịch chuyển không ma sát.", sts: [{ l: "a)", t: "Nhiệt độ khối khí thay đổi do quá trình truyền nhiệt.", a: true }, { l: "b)", t: "Khi pit-tông dịch chuyển làm khí dãn nở, khối khí đã sinh công.", a: true }, { l: "c)", t: "Khi giữ cố định pit-tông, toàn bộ nhiệt lượng dùng để làm tăng nội năng.", a: true }, { l: "d)", t: "Khi nhận nhiệt làm tăng nhiệt độ, động năng phân tử không đổi.", a: false }], e: "Ý a, b, c đúng; ý d sai vì nhiệt độ tăng thì động năng trung bình phân tử tăng." }
     ],
-    short: [
+    bank_short: [
         { id: "3.1", q: "Một ấm chứa 2 kg nước đang sôi ở 100°C tiếp tục đun để hóa hơi hoàn toàn. Biết $L = 2,26 \\cdot 10^6\\text{ J/kg}$. Nhiệt lượng cần thiết là $X \\cdot 10^6\\text{ J}$. Giá trị của X là bao nhiêu?", a: "4,52", e: "$Q = m \\cdot L = 2 \\cdot 2,26 \\cdot 10^6 = 4,52 \\cdot 10^6\\text{ J}$." },
         { id: "3.2", q: "Hóa hơi hoàn toàn 0,4 kg nước đang sôi trong 5 phút ($L = 2,26 \\cdot 10^6\\text{ J/kg}$). Công suất trung bình của bếp là bao nhiêu Watt? (làm tròn phần nguyên)", a: "3013", e: "$Q = 0,4 \\cdot 2,26 \\cdot 10^6 = 904000\\text{ J}$. $\\mathcal{P} = 904000 / 300 \\approx 3013\\text{ W}$." },
         { id: "3.3", q: "Nhiệt lượng cần cung cấp để làm nóng chảy hoàn toàn 100 g nước đá ở 0°C là $X \\cdot 10^4\\text{ J}$. Biết $\\lambda = 3,4 \\cdot 10^5\\text{ J/kg}$. Tìm X.", a: "3,4", e: "$Q = m \\cdot \\lambda = 0,1 \\cdot 3,4 \\cdot 10^5 = 34000\\text{ J} = 3,4 \\cdot 10^4\\text{ J}$." },
@@ -610,7 +610,6 @@ const ALL_BANKS = {
     "KS_Vatli12": QUESTION_BANK,
     "mix": QUESTION_BANK
 };
-// ==========================================
 
 function autoScaleApp() {
     const container = document.querySelector('.container');
@@ -620,8 +619,6 @@ function autoScaleApp() {
     if (!container || !wrapper) return;
 
     const isReviewing = reviewArea && reviewArea.style.display === 'block';
-    
-    // NẾU TÍNH NĂNG THU PHÓNG BỊ TẮT TỪ ADMIN HOẶC ĐANG Ở MÀN HÌNH REVIEW/ADMIN/MOBILE
     if (!isAutoScaleEnabled || (adminScreen && adminScreen.classList.contains('active')) || window.innerWidth <= 768 || isReviewing) {
         container.style.transform = `none`; wrapper.style.height = 'auto'; wrapper.style.overflow = 'visible';
         container.style.marginBottom = '50px'; return; 
@@ -654,56 +651,15 @@ document.addEventListener('keydown', (e) => {
     }
     if (e.key === 'Escape') {
         document.querySelectorAll('.modal-overlay').forEach(modal => {
-            if (modal.style.display === 'flex' || modal.style.display === 'block') {
-                closeOverlay(modal);
-            }
+            if (modal.style.display === 'flex' || modal.style.display === 'block') closeOverlay(modal);
         });
-    }
-    if (e.key === 'Enter') {
-        if (e.target.tagName.toLowerCase() === 'textarea') return;
-        const adminModal = document.getElementById('admin-auth-modal');
-        if (adminModal.style.display === 'flex' || adminModal.style.display === 'block') {
-            document.getElementById('btn-auth-confirm').click();
-            return; 
-        }
-        const deleteModal = document.getElementById('delete-auth-modal');
-        if (deleteModal.style.display === 'flex' || deleteModal.style.display === 'block') {
-            document.getElementById('btn-delete-confirm').click();
-            return;
-        }
-        const finishModal = document.getElementById('confirm-finish-modal');
-        if (finishModal.style.display === 'flex' || finishModal.style.display === 'block') {
-            document.getElementById('btn-modal-confirm').click();
-            return;
-        }
-        const reportModal = document.getElementById('report-modal');
-        if (reportModal.style.display === 'flex' || reportModal.style.display === 'block') {
-            document.getElementById('btn-report-submit').click();
-            return;
-        }
     }
 }, true);
 
 document.querySelectorAll('.modal-overlay').forEach(modal => {
     modal.addEventListener('mousedown', (e) => {
-        if (e.target === modal && modal.id !== 'image-viewer-modal') { 
-            closeOverlay(modal);
-        }
+        if (e.target === modal && modal.id !== 'image-viewer-modal') closeOverlay(modal);
     });
-});
-
-document.addEventListener('paste', function(e) {
-    if (document.getElementById('report-modal').style.display === 'flex' || document.getElementById('report-modal').style.display === 'block') {
-        const items = (e.clipboardData || e.originalEvent.clipboardData).items;
-        for (let index in items) {
-            const item = items[index];
-            if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
-                const blob = item.getAsFile();
-                processImageFile(blob);
-                showCustomAlert("✅ Đã dán ảnh thành công!");
-            }
-        }
-    }
 });
 
 document.getElementById('topic-select').addEventListener('change', (e) => {
@@ -711,13 +667,12 @@ document.getElementById('topic-select').addEventListener('change', (e) => {
     document.getElementById('banner-topic').innerText = `Chuyên đề: ${topicText}`;
 });
 
-// AUTOCOMPLETE LOGIC ========================================
 function autocomplete(inp, arr) {
     let currentFocus;
     inp.addEventListener("input", function(e) {
-        let a, b, val = this.value; // Đã xóa khai báo biến 'i' ở đây
+        let a, b, val = this.value;
         closeAllLists();
-        if (!val) { return false;}
+        if (!val) return false;
         currentFocus = -1;
         a = document.createElement("DIV");
         a.setAttribute("id", this.id + "autocomplete-list");
@@ -725,74 +680,48 @@ function autocomplete(inp, arr) {
         this.parentNode.appendChild(a);
         
         let count = 0;
-        // Chuyển sang dùng let i = 0 ngay trong vòng lặp để tạo Block Scope
         for (let i = 0; i < arr.length; i++) {
-            const student = arr[i]; // Gán đối tượng vào hằng số cục bộ để tránh lỗi Closure
+            const student = arr[i];
             let sName = student.name || "";
-            // Tìm kiếm không phân biệt hoa thường
             if (sName.toLowerCase().includes(val.toLowerCase())) {
                 b = document.createElement("DIV");
-                // Highlight phần text trùng
                 let matchIdx = sName.toLowerCase().indexOf(val.toLowerCase());
                 b.innerHTML = sName.substring(0, matchIdx);
                 b.innerHTML += "<strong>" + sName.substring(matchIdx, matchIdx + val.length) + "</strong>";
                 b.innerHTML += sName.substring(matchIdx + val.length);
                 b.innerHTML += ` <span style="color:#64748b; font-size:0.8rem;">(Lớp ${student.class} - SBD ${student.sbd})</span>`;
-                
                 b.innerHTML += "<input type='hidden' value='" + sName.replace(/'/g, "&#39;") + "'>";
                 b.addEventListener("click", function(e) {
                     inp.value = this.getElementsByTagName("input")[0].value;
-                    // TỰ ĐỘNG ĐIỀN CÁC TRƯỜNG VÀ KHÓA (Gọi từ hằng số student)
                     document.getElementById("user_class").value = student.class || "";
                     document.getElementById("user_sbd").value = student.sbd || "";
                     document.getElementById("user_school").value = student.school || "";
-                    
                     document.getElementById("user_class").setAttribute("readonly", true);
                     document.getElementById("user_sbd").setAttribute("readonly", true);
                     document.getElementById("user_school").setAttribute("readonly", true);
-                    
                     closeAllLists();
                 });
                 a.appendChild(b);
                 count++;
-                if(count > 10) break; // Chỉ hiện 10 kết quả
+                if(count > 10) break;
             }
         }
         if(count === 0) {
             b = document.createElement("DIV");
-            b.innerHTML = `<span style="color:#ef4444; font-size:0.8rem;">Không tìm thấy trong danh sách. Hãy tick chọn "Thí sinh tự do" ở trên nếu bạn thuộc trường khác.</span>`;
+            b.innerHTML = `<span style="color:#ef4444; font-size:0.8rem;">Không tìm thấy. Hãy chọn "Thí sinh tự do" nếu thuộc trường khác.</span>`;
             a.appendChild(b);
         }
     });
     
-    inp.addEventListener("keydown", function(e) {
-        let x = document.getElementById(this.id + "autocomplete-list");
-        if (x) x = x.getElementsByTagName("div");
-        if (e.keyCode == 40) { currentFocus++; addActive(x); }
-        else if (e.keyCode == 38) { currentFocus--; addActive(x); }
-        else if (e.keyCode == 13) { e.preventDefault(); if (currentFocus > -1) { if (x) x[currentFocus].click(); } }
-    });
-    
-    function addActive(x) {
-        if (!x) return false;
-        removeActive(x);
-        if (currentFocus >= x.length) currentFocus = 0;
-        if (currentFocus < 0) currentFocus = (x.length - 1);
-        x[currentFocus].classList.add("autocomplete-active");
-    }
-    function removeActive(x) {
-        for (let i = 0; i < x.length; i++) { x[i].classList.remove("autocomplete-active"); }
-    }
     function closeAllLists(elmnt) {
         let x = document.getElementsByClassName("autocomplete-items");
         for (let i = 0; i < x.length; i++) {
-            if (elmnt != x[i] && elmnt != inp) { x[i].parentNode.removeChild(x[i]); }
+            if (elmnt != x[i] && elmnt != inp) x[i].parentNode.removeChild(x[i]);
         }
     }
     document.addEventListener("click", function (e) { closeAllLists(e.target); });
 }
 
-// TOGGLE GUEST MODE
 document.getElementById('guest-mode-toggle').addEventListener('change', function(e) {
     const isGuest = e.target.checked;
     const classInp = document.getElementById("user_class");
@@ -801,27 +730,23 @@ document.getElementById('guest-mode-toggle').addEventListener('change', function
     const nameInp = document.getElementById("username");
     
     if (isGuest) {
-        classInp.removeAttribute("readonly"); classInp.value = ""; classInp.placeholder = "Ví dụ: 9A1";
+        classInp.removeAttribute("readonly"); classInp.value = ""; classInp.placeholder = "Ví dụ: 9/1";
         sbdInp.removeAttribute("readonly"); sbdInp.value = ""; sbdInp.placeholder = "Ví dụ: 01";
         schoolInp.removeAttribute("readonly"); schoolInp.value = ""; schoolInp.placeholder = "Nhập tên trường";
         nameInp.value = ""; nameInp.placeholder = "Nhập họ và tên...";
         document.getElementById('username-hint').style.display = 'none';
-        
-        // Remove autocomplete listeners temporarily by cloning
-        const oldInp = nameInp;
-        const newInp = oldInp.cloneNode(true);
+        const oldInp = nameInp; const newInp = oldInp.cloneNode(true);
         oldInp.parentNode.replaceChild(newInp, oldInp);
     } else {
         classInp.setAttribute("readonly", true); classInp.value = ""; classInp.placeholder = "Tự động điền";
         sbdInp.setAttribute("readonly", true); sbdInp.value = ""; sbdInp.placeholder = "Tự động điền";
         schoolInp.setAttribute("readonly", true); schoolInp.value = ""; schoolInp.placeholder = "Tự động điền";
-        document.getElementById('username').value = ""; document.getElementById('username').placeholder = "Nhập tên để tìm kiếm trong danh sách...";
+        document.getElementById('username').value = ""; document.getElementById('username').placeholder = "Nhập tên để tìm kiếm...";
         document.getElementById('username-hint').style.display = 'block';
         autocomplete(document.getElementById("username"), globalStudentList);
     }
 });
 
-// LOAD STUDENT LIST
 async function loadStudentList() {
     try {
         const snap = await getDocs(collection(db, 'artifacts', appId_fixed, 'public', 'data', collectionStudents));
@@ -830,16 +755,13 @@ async function loadStudentList() {
         if(!document.getElementById('guest-mode-toggle').checked) {
             autocomplete(document.getElementById("username"), globalStudentList);
         }
-    } catch(e) { console.log("Lỗi tải danh sách HS:", e); }
+    } catch(e) {}
 }
 
 const initAuth = async () => { try { await signInAnonymously(auth); } catch (e) {} }; initAuth();
 onAuthStateChanged(auth, async user => { 
     currentUser = user; 
-    if(user) {
-        await loadTimeConfig(); 
-        await loadStudentList();
-    }
+    if(user) { await loadTimeConfig(); await loadStudentList(); }
 });
 
 let fireRequest;
@@ -857,8 +779,8 @@ function startFire() {
             ctx.save(); ctx.translate(this.x, this.y); ctx.beginPath(); ctx.moveTo(0, 0);
             ctx.bezierCurveTo(-this.size/2.5, -this.size/2, -this.size/3, -this.size*0.8, 0, -this.size * 1.3);
             ctx.bezierCurveTo(this.size/3, -this.size*0.8, this.size/2.5, -this.size/2, 0, 0);
-            let color = this.life > 0.8 ? `rgba(255, 255, 255, ${this.life})` : (this.life > 0.5 ? `rgba(255, 220, 0, ${this.life})` : (this.life > 0.2 ? `rgba(255, 80, 0, ${this.life})` : `rgba(200, 0, 0, ${this.life})`));
-            ctx.fillStyle = color; ctx.shadowBlur = this.size / 3; ctx.shadowColor = "#ff4e00"; ctx.fill(); ctx.restore();
+            ctx.fillStyle = this.life > 0.5 ? `rgba(255, 220, 0, ${this.life})` : `rgba(255, 80, 0, ${this.life})`;
+            ctx.shadowBlur = this.size / 3; ctx.shadowColor = "#ff4e00"; ctx.fill(); ctx.restore();
         }
     }
     function animate() {
@@ -888,9 +810,7 @@ function checkShortAns(u, a) {
     let cleanU = (u||"").toString().replace(/\s+/g, '').replace(/,/g, '.');
     let cleanA = (a||"").toString().replace(/\s+/g, '').replace(/,/g, '.');
     if (cleanU === cleanA) return true;
-    if (!isNaN(cleanU) && !isNaN(cleanA) && cleanU !== '' && cleanA !== '') {
-        return Number(cleanU) === Number(cleanA);
-    }
+    if (!isNaN(cleanU) && !isNaN(cleanA) && cleanU !== '' && cleanA !== '') return Number(cleanU) === Number(cleanA);
     return false;
 }
 
@@ -901,8 +821,6 @@ async function loadTimeConfig() {
             const data = docRef.data();
             practiceTimeLimit = (data.practice || 45) * 60; testTimeLimit = (data.test || 45) * 60; maxHintsAllowed = data.maxHints !== undefined ? data.maxHints : 3;
             document.getElementById('cfg-time-practice').value = data.practice || 45; document.getElementById('cfg-time-test').value = data.test || 45; document.getElementById('cfg-max-hints').value = maxHintsAllowed;
-            
-            // Tải trạng thái Thu phóng từ Database
             if(data.autoScale !== undefined) {
                 isAutoScaleEnabled = data.autoScale;
                 const statusEl = document.getElementById('autoscale-status');
@@ -917,7 +835,6 @@ const initGame = (m) => {
     const getVal = (id) => { const el = document.getElementById(id); return (el && el.value.trim()) ? el.value.trim() : ""; };
     const name = getVal('username'); const sch = getVal('user_school'); const cls = getVal('user_class'); const sbd = getVal('user_sbd');
     
-    // Yêu cầu nhập đủ thông tin
     if (!name || !sch || !cls || !sbd) {
         document.getElementById('start-error').style.display = 'block';
         return;
@@ -931,21 +848,19 @@ const initGame = (m) => {
     document.getElementById('btn-report-open').style.display = 'none'; document.getElementById('btn-admin-open').style.display = 'none';
     document.getElementById('header-user-info').innerText = `${name} | Lớp: ${cls} | ${topicText}`;
     hintsUsed = 0; unlockedHints = []; currentExam = [];
-    let activeBank = { mcq: [], tf: [], short: [] };
-    if (topicVal === 'mix') {
-        Object.values(ALL_BANKS).forEach(bank => {
-            activeBank.mcq.push(...bank.mcq); activeBank.tf.push(...bank.tf); activeBank.short.push(...bank.short);
-        });
-    } else { activeBank = ALL_BANKS[topicVal]; }
-   const numMcq = Math.min(18, activeBank.mcq.length);
-    const numTf = Math.min(4, activeBank.tf.length);
-    const numShort = Math.min(6, activeBank.short.length);
+    let activeBank = ALL_BANKS[topicVal] || QUESTION_BANK;
+    
+    const numMcq = Math.min(18, activeBank.bank_mcq.length);
+    const numTf = Math.min(4, activeBank.bank_tf.length);
+    const numShort = Math.min(6, activeBank.bank_short.length);
     let qNum = 1;
-    shuffle([...activeBank.mcq]).slice(0, numMcq).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'mcq', section: 'Phần I. Trắc nghiệm khách quan dạng Đa lựa chọn', displayNum: qNum++}));
-    shuffle([...activeBank.tf]).slice(0, numTf).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'tf', section: 'Phần II. Trắc nghiệm khách quan dạng Đúng/Sai', displayNum: qNum++}));
-    shuffle([...activeBank.short]).slice(0, numShort).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'short', section: 'Phần III. Trắc nghiệm khách quan dạng Trả lời ngắn', displayNum: qNum++}));
+    
+    shuffle([...activeBank.bank_mcq]).slice(0, numMcq).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'mcq', section: 'Phần I. Trắc nghiệm khách quan dạng Đa lựa chọn', displayNum: qNum++}));
+    shuffle([...activeBank.bank_tf]).slice(0, numTf).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'tf', section: 'Phần II. Trắc nghiệm khách quan dạng Đúng/Sai', displayNum: qNum++}));
+    shuffle([...activeBank.bank_short]).slice(0, numShort).forEach(q => currentExam.push({...q, id: `q_${qNum}`, type: 'short', section: 'Phần III. Trắc nghiệm khách quan dạng Trả lời ngắn', displayNum: qNum++}));
+    
     userAnswers = {}; currentIdx = 0; timeLeft = (mode === 'test') ? testTimeLimit : practiceTimeLimit;
-    const elTimer = document.getElementById('timer'); if(elTimer) { elTimer.innerText = `${Math.floor(timeLeft/60)}:${(timeLeft%60).toString().padStart(2,'0')}`; }
+    const elTimer = document.getElementById('timer'); if(elTimer) elTimer.innerText = `${Math.floor(timeLeft/60)}:${(timeLeft%60).toString().padStart(2,'0')}`;
     quizStartTime = Date.now();
     document.getElementById('wish-overlay').style.display = 'flex'; document.getElementById('wish-cheat-info').style.display = (mode === 'test') ? 'block' : 'none';
     startFire();
@@ -963,17 +878,7 @@ function renderQuestion() {
     let html = `<div class="section-title">${q.section}</div><div class="card" style="margin-top: -10px;">`;
     if(mode === 'practice') {
         let hintBtnText = unlockedHints.includes(q.id) ? "ĐÃ MỞ GỢI Ý 💡" : `XEM GỢI Ý 💡 (Còn ${maxHintsAllowed - hintsUsed})`;
-        let hintHtml = q.e;
-        const mask = `<span style="background:#cbd5e0; color:transparent; border-radius:4px; padding:0 8px; user-select:none; border: 1px solid #94a3b8;" title="Đáp án bị che trong chế độ Luyện tập">?</span>`;
-        if (q.type === 'mcq') {
-            hintHtml = hintHtml.replace(/(Phương án|Đáp án|Chọn)\s+([A-D])/gi, `$1 ${mask}`);
-        } else if (q.type === 'short') {
-            const safeA = q.a.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-            hintHtml = hintHtml.replace(new RegExp(`\\b${safeA}\\b`, 'g'), mask);
-        } else if (q.type === 'tf') {
-            hintHtml = hintHtml.replace(/(Ý\s+[a-d](?:[\s,và]+[a-d])*)\s*(đúng|sai)/gi, `$1 ${mask}`);
-        }
-        html += `<button class="btn-hint" id="hint-trigger" style="padding: 8px 15px; border-radius: 8px; border: 2px solid var(--accent); background: #fffbeb; color: #b45309; font-weight: bold; cursor: pointer; margin-bottom: 15px;">${hintBtnText}</button><div id="hint-box" class="hint-box" style="display: none; margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 0.9rem; color: #475569; line-height: 1.5;"><b>Hướng dẫn tư duy:</b><br>${hintHtml}</div>`;
+        html += `<button class="btn-hint" id="hint-trigger" style="padding: 8px 15px; border-radius: 8px; border: 2px solid var(--accent); background: #fffbeb; color: #b45309; font-weight: bold; cursor: pointer; margin-bottom: 15px;">${hintBtnText}</button><div id="hint-box" class="hint-box" style="display: none; margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 0.9rem; color: #475569; line-height: 1.5;"><b>Hướng dẫn tư duy:</b><br>${q.e}</div>`;
     }
     if(q.type === 'mcq') {
         html += `<h3>Câu ${q.displayNum}. ${q.q}</h3>`;
@@ -991,7 +896,7 @@ function renderQuestion() {
     } else {
         html += `<h3>Câu ${q.displayNum}. ${q.q}</h3>`;
         const currentVal = (userAnswers[q.id] || "").padEnd(4, " ");
-        html += `<div class="short-answer-wrapper"><input type="text" class="char-slot" maxlength="1" value="${currentVal[0] !== ' ' ? currentVal[0] : ''}" data-idx="0"><input type="text" class="char-slot" maxlength="1" value="${currentVal[1] !== ' ' ? currentVal[1] : ''}" data-idx="1"><input type="text" class="char-slot" maxlength="1" value="${currentVal[2] !== ' ' ? currentVal[2] : ''}" data-idx="2"><input type="text" class="char-slot" maxlength="1" value="${currentVal[3] !== ' ' ? currentVal[3] : ''}" data-idx="3"></div><p style="color:var(--danger); font-size:0.8rem; font-weight:bold; text-align:center;">Lưu ý: Nhập mỗi kÍ tự vào một ô, BẮT ĐẦU TỪ TRÁI SANG PHẢI</p>`;
+        html += `<div class="short-answer-wrapper"><input type="text" class="char-slot" maxlength="1" value="${currentVal[0] !== ' ' ? currentVal[0] : ''}" data-idx="0"><input type="text" class="char-slot" maxlength="1" value="${currentVal[1] !== ' ' ? currentVal[1] : ''}" data-idx="1"><input type="text" class="char-slot" maxlength="1" value="${currentVal[2] !== ' ' ? currentVal[2] : ''}" data-idx="2"><input type="text" class="char-slot" maxlength="1" value="${currentVal[3] !== ' ' ? currentVal[3] : ''}" data-idx="3"></div><p style="color:var(--danger); font-size:0.8rem; font-weight:bold; text-align:center;">Lưu ý: Nhập mỗi kí tự vào một ô, BẮT ĐẦU TỪ TRÁI SANG PHẢI</p>`;
     }
     container.innerHTML = html + `</div>`;
     if(q.type === 'mcq') {
@@ -1034,9 +939,9 @@ async function calculateResult() {
     isQuizRunning = false; canCheckCheat = false; clearInterval(timerInt); audioFinish.play().catch(()=>{});
     document.getElementById('btn-report-open').style.display = 'block'; document.getElementById('btn-admin-open').style.display = 'block';
     const dur = Math.floor((Date.now() - quizStartTime) / 1000); let score = 0; 
-    const pMCQ = 0.25;    // Mỗi câu trắc nghiệm nhiều lựa chọn: 0,25 đ (18 x 0,25 = 4,5 điểm)
-    const pShort = 0.25;  // Mỗi câu trả lời ngắn: 0,25 đ (6 x 0,25 = 1,5 điểm)
-    const tfMap = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0}; // Mỗi câu Đúng/Sai tối đa 1,0 đ (4 x 1,0 = 4,0 điểm)
+    const pMCQ = 0.25;    
+    const pShort = 0.25;  
+    const tfMap = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0}; 
     currentExam.forEach(q => {
         const norm = (s) => (s || "").toString().trim().replace(',','.');
         if(q.type === 'mcq' && norm(userAnswers[q.id]||'') === norm(q.a)) score += pMCQ;
@@ -1108,8 +1013,7 @@ async function renderAdminStudents() {
     const listBody = document.getElementById('student-list-body');
     listBody.innerHTML = "<tr><td colspan='6' style='text-align: center;'>Đang tải danh sách...</td></tr>";
     try {
-        await loadStudentList(); // Refresh from DB
-        
+        await loadStudentList();
         const classes = [...new Set(globalStudentList.map(i => i.class))].filter(c => c).sort(); 
         const schools = [...new Set(globalStudentList.map(i => i.school))].filter(s => s).sort();
         
@@ -1119,33 +1023,24 @@ async function renderAdminStudents() {
         fSchool.innerHTML = '<option value="all">Tất cả trường</option>' + schools.map(s => `<option value="${s}" ${s===oldS?'selected':''}>${s}</option>`).join('');
         
         let data = globalStudentList.filter(i => { 
-            return ((fClass.value === 'all') || (i.class === fClass.value)) 
-                && ((fSchool.value === 'all') || (i.school === fSchool.value));
+            return ((fClass.value === 'all') || (i.class === fClass.value)) && ((fSchool.value === 'all') || (i.school === fSchool.value));
         });
         
-        // HÀM TÁCH TÊN VÀ HỌ ĐỆM ĐỂ SẮP XẾP CHUẨN VIỆT NAM
         const getVnNameParts = (fullName) => {
             const parts = (fullName || '').trim().split(/\s+/);
             if (parts.length === 0) return { first: '', rest: '' };
             if (parts.length === 1) return { first: parts[0], rest: '' };
-            const first = parts.pop(); // Từ cuối cùng là Tên
-            const rest = parts.join(' '); // Phần còn lại là Họ và đệm
+            const first = parts.pop(); 
+            const rest = parts.join(' '); 
             return { first, rest };
         };
 
-        // Sắp xếp: Trường -> Lớp (số tự nhiên) -> Tên (Bảng chữ cái VN) -> Họ đệm
         data.sort((a,b) => {
             if (a.school !== b.school) return (a.school || '').localeCompare(b.school || '', 'vi', { numeric: true });
             if (a.class !== b.class) return (a.class || '').localeCompare(b.class || '', 'vi', { numeric: true });
-            
-            const nameA = getVnNameParts(a.name);
-            const nameB = getVnNameParts(b.name);
-            
-            // So sánh Tên trước
+            const nameA = getVnNameParts(a.name); const nameB = getVnNameParts(b.name);
             const firstCompare = nameA.first.localeCompare(nameB.first, 'vi', { sensitivity: 'base' });
             if (firstCompare !== 0) return firstCompare;
-            
-            // Nếu trùng Tên, so sánh Họ và đệm
             return nameA.rest.localeCompare(nameB.rest, 'vi', { sensitivity: 'base' });
         });
 
@@ -1159,7 +1054,6 @@ async function renderAdminStudents() {
     } catch(e) { listBody.innerHTML = "<tr><td colspan='6' style='text-align: center; color: red;'>Lỗi kết nối CSDL.</td></tr>"; }
 }
 
-// TAB MANAGEMENT IN ADMIN
 document.getElementById('tab-results').onclick = () => {
     document.getElementById('tab-results').classList.add('active');
     document.getElementById('tab-students').classList.remove('active');
@@ -1184,9 +1078,7 @@ function viewAdminReview(docId) {
     document.getElementById('ar-name').innerText = `${record.name} - Điểm: ${record.score}`; arExamData = record.examData; arUserAnswers = record.userAnswers || {};
     const content = document.getElementById('ar-content'); let h = '', labels = ['A', 'B', 'C', 'D'];
     const norm = (s) => (s || "").toString().trim().replace(',','.'); 
-    const pMCQ = 0.25;
-    const pShort = 0.25; 
-    const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
+    const pMCQ = 0.25; const pShort = 0.25; const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
     arExamData.forEach(q => {
         let qText = q.type === 'tf' ? `Câu ${q.displayNum} (Đúng/Sai)` : `Câu ${q.displayNum}. ${q.q}`; let itemScore = 0, scoreHTML = '';
         if(q.type === 'mcq') { itemScore = norm(arUserAnswers[q.id]||'') === norm(q.a) ? pMCQ : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; }
@@ -1219,316 +1111,27 @@ document.getElementById('btn-ar-retry').onclick = () => {
     document.getElementById('admin-review-modal').style.display = 'none'; document.getElementById('screen-admin').classList.remove('active');
     document.getElementById('btn-report-open').style.display = 'none'; document.getElementById('btn-admin-open').style.display = 'none';
     currentExam = wrongQuestions; userAnswers = {}; currentIdx = 0; mode = 'practice'; isQuizRunning = true; timeLeft = practiceTimeLimit; hasSaved = false; 
-    const elTimer = document.getElementById('timer'); if(elTimer) { elTimer.innerText = `${Math.floor(timeLeft/60)}:${(timeLeft%60).toString().padStart(2,'0')}`; }
+    const elTimer = document.getElementById('timer'); if(elTimer) elTimer.innerText = `${Math.floor(timeLeft/60)}:${(timeLeft%60).toString().padStart(2,'0')}`;
     quizStartTime = Date.now(); document.getElementById('main-header').style.display = 'flex'; showScreen('screen-quiz'); renderQuestion(); startTimer();
 };
 
-// EXCEL IMPORT & EXPORT ========================================
 document.getElementById('btn-download-template').onclick = () => {
-    const templateData = [{ "STT": 1, "Họ và Tên": "Nguyễn Văn A", "Lớp": "9/1 hoặc 12/1", "SBD": "01", "Trường": "THPT / THPT ...." }, { "STT": 2, "Họ và Tên": "Trần Thị B", "Lớp": "9/2", "SBD": "02", "Trường": "THCS Thanh Thuỷ" }];
+    const templateData = [{ "STT": 1, "Họ và Tên": "Nguyễn Văn A", "Lớp": "9/1", "SBD": "01", "Trường": "THCS Thủy Phương" }];
     const ws = XLSX.utils.json_to_sheet(templateData);
     ws['!cols'] = [{wch: 5}, {wch: 30}, {wch: 10}, {wch: 10}, {wch: 30}];
     const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "DanhSachHocSinh");
     XLSX.writeFile(wb, "Mau_DanhSachHocSinh.xlsx");
 };
 
-document.getElementById('btn-trigger-import').onclick = () => {
-    document.getElementById('file-import-students').click();
-};
-
-document.getElementById('btn-delete-all-students').onclick = () => { 
-    pendingAuthAction = 'delete_all_students'; 
-    if (auth.currentUser && !auth.currentUser.isAnonymous) { executePendingAdminAction(); return; }
-    document.getElementById('auth-action-title').innerText = "Xác nhận Xóa TOÀN BỘ HS"; 
-    document.getElementById('delete-pw').value = ''; document.getElementById('delete-email').value = '';
-    document.getElementById('delete-auth-modal').style.display = 'flex'; 
-};
-
+document.getElementById('btn-trigger-import').onclick = () => document.getElementById('file-import-students').click();
 document.getElementById('file-import-students').onchange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+    const file = e.target.files[0]; if (!file) return;
     const reader = new FileReader();
     reader.onload = function(e) {
         try {
             const data = new Uint8Array(e.target.result);
             const workbook = XLSX.read(data, {type: 'array'});
-            const firstSheetName = workbook.SheetNames[0];
-            const worksheet = workbook.Sheets[firstSheetName];
+            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
             const json = XLSX.utils.sheet_to_json(worksheet);
-            
             importedStudentsCache = [];
-            let duplicateCount = 0;
-            
-            json.forEach(row => {
-                let name = (row["Họ và Tên"] || row["Họ tên"] || row["Name"] || "").toString().trim();
-                let cls = (row["Lớp"] || row["Class"] || "").toString().trim();
-                let sbd = (row["SBD"] || row["Số báo danh"] || "").toString().trim();
-                let sch = (row["Trường"] || row["School"] || "THCS Thanh Thuỷ").toString().trim();
-                if(name) {
-                    // Lọc trùng lặp dựa trên Tên, Lớp và Trường
-                    let isDupDB = globalStudentList.some(s => s.name === name && s.class === cls && s.school === sch);
-                    let isDupCache = importedStudentsCache.some(s => s.name === name && s.class === cls && s.school === sch);
-                    
-                    if(!isDupDB && !isDupCache) {
-                        importedStudentsCache.push({ name: name, class: cls, sbd: sbd, school: sch, timestamp: new Date().toISOString() });
-                    } else {
-                        duplicateCount++;
-                    }
-                }
-            });
-            
-            if (importedStudentsCache.length > 0) {
-                pendingAuthAction = 'import_students'; 
-                if (auth.currentUser && !auth.currentUser.isAnonymous) { executePendingAdminAction(); return; }
-                let msg = "Xác nhận Import " + importedStudentsCache.length + " HS";
-                if(duplicateCount > 0) msg += " (Bỏ qua " + duplicateCount + " trùng)";
-                document.getElementById('auth-action-title').innerText = msg; 
-                document.getElementById('delete-pw').value = ''; document.getElementById('delete-email').value = '';
-                document.getElementById('delete-auth-modal').style.display = 'flex'; 
-            } else {
-                if(duplicateCount > 0) {
-                    showCustomAlert(`Đã bỏ qua ${duplicateCount} học sinh do trùng lặp! Không có dữ liệu mới.`);
-                } else {
-                    showCustomAlert("File không có dữ liệu hợp lệ!");
-                }
-            }
-        } catch(error) {
-            showCustomAlert("Lỗi đọc file Excel. Vui lòng dùng file mẫu!");
-        }
-        document.getElementById('file-import-students').value = ''; // reset
-    };
-    reader.readAsArrayBuffer(file);
-};
-
-// ADMIN ACTIONS PIPELINE ========================================
-
-function deleteEntry(id, type) { 
-    pendingAuthAction = type === 'student' ? 'delete_student' : 'delete_result'; 
-    currentDeleteId = id; 
-    if (auth.currentUser && !auth.currentUser.isAnonymous) { executePendingAdminAction(); return; }
-    document.getElementById('auth-action-title').innerText = "Xác nhận Xoá"; 
-    document.getElementById('delete-pw').value = ''; document.getElementById('delete-email').value = '';
-    document.getElementById('delete-auth-modal').style.display = 'flex'; 
-}
-
-async function executePendingAdminAction() {
-    if (pendingAuthAction === 'delete_result' && currentDeleteId) { 
-        await deleteDoc(doc(db, 'artifacts', appId_fixed, 'public', 'data', collectionName, currentDeleteId)); 
-        renderAdmin(); currentDeleteId = null; 
-    } 
-    else if (pendingAuthAction === 'delete_student' && currentDeleteId) { 
-        await deleteDoc(doc(db, 'artifacts', appId_fixed, 'public', 'data', collectionStudents, currentDeleteId)); 
-        renderAdminStudents(); currentDeleteId = null; 
-    } 
-    else if (pendingAuthAction === 'delete_all_students') {
-        showCustomAlert("Đang xóa toàn bộ học sinh, vui lòng đợi...");
-        try {
-            const snap = await getDocs(collection(db, 'artifacts', appId_fixed, 'public', 'data', collectionStudents));
-            const deletePromises = [];
-            snap.forEach(docSnap => {
-                deletePromises.push(deleteDoc(doc(db, 'artifacts', appId_fixed, 'public', 'data', collectionStudents, docSnap.id)));
-            });
-            await Promise.all(deletePromises);
-            showCustomAlert("✅ Đã làm sạch toàn bộ danh sách học sinh!");
-            renderAdminStudents();
-        } catch(e) { showCustomAlert("Lỗi khi xóa dữ liệu!"); }
-    }
-    else if (pendingAuthAction === 'import_students' && importedStudentsCache.length > 0) {
-        showCustomAlert("Đang tiến hành nhập dữ liệu, vui lòng đợi...");
-        try {
-            // Upload sequentially or promise.all batches
-            for(let i=0; i<importedStudentsCache.length; i++) {
-                await addDoc(collection(db, 'artifacts', appId_fixed, 'public', 'data', collectionStudents), importedStudentsCache[i]);
-            }
-            showCustomAlert(`✅ Đã import thành công ${importedStudentsCache.length} học sinh!`);
-            importedStudentsCache = [];
-            renderAdminStudents();
-        } catch(e) { showCustomAlert("Lỗi khi tải dữ liệu lên Server!"); }
-    }
-    else if (pendingAuthAction === 'toggle_autoscale') {
-        const newState = !isAutoScaleEnabled;
-        try {
-            // Dùng { merge: true } để không ghi đè mất các setting khác
-            await setDoc(doc(db, 'artifacts', appId_fixed, 'public', 'data', 'config', 'timer_settings'), { autoScale: newState, lastUpdated: new Date().toISOString() }, { merge: true }); 
-            isAutoScaleEnabled = newState;
-            document.getElementById('autoscale-status').innerText = isAutoScaleEnabled ? '🟢' : '🔴';
-            showCustomAlert(`Đã ${isAutoScaleEnabled ? 'BẬT' : 'TẮT'} tính năng thu phóng (PC) thành công!`);
-            autoScaleApp();
-        } catch(e) { showCustomAlert("Lỗi khi lưu cấu hình!"); }
-    }
-    else if (pendingAuthAction === 'config') {
-        const pTime = parseInt(document.getElementById('cfg-time-practice').value), tTime = parseInt(document.getElementById('cfg-time-test').value), mHints = parseInt(document.getElementById('cfg-max-hints').value);
-        if(isNaN(pTime) || isNaN(tTime) || isNaN(mHints) || pTime <= 0 || tTime <= 0 || mHints < 0) { showCustomAlert("⚠️ Vui lòng nhập số hợp lệ!"); return; }
-        try { await setDoc(doc(db, 'artifacts', appId_fixed, 'public', 'data', 'config', 'timer_settings'), { practice: pTime, test: tTime, maxHints: mHints, autoScale: isAutoScaleEnabled, lastUpdated: new Date().toISOString() }, { merge: true }); practiceTimeLimit = pTime * 60; testTimeLimit = tTime * 60; maxHintsAllowed = mHints; showCustomAlert("Đã cập nhật cấu hình thành công!"); } catch(e) { showCustomAlert("Lỗi khi lưu cấu hình!"); }
-    } else if (pendingAuthAction === 'inbox') { renderAdminInbox(); }
-    pendingAuthAction = null;
-}
-
-document.getElementById('btn-toggle-autoscale').onclick = () => { 
-    pendingAuthAction = 'toggle_autoscale'; 
-    if (auth.currentUser && !auth.currentUser.isAnonymous) { executePendingAdminAction(); return; }
-    document.getElementById('auth-action-title').innerText = "Xác nhận Đổi Thu Phóng"; 
-    document.getElementById('delete-pw').value = ''; document.getElementById('delete-email').value = '';
-    document.getElementById('delete-auth-modal').style.display = 'flex'; 
-};
-
-document.getElementById('btn-save-config').onclick = () => { 
-    pendingAuthAction = 'config'; 
-    if (auth.currentUser && !auth.currentUser.isAnonymous) { executePendingAdminAction(); return; }
-    document.getElementById('auth-action-title').innerText = "Lưu Cấu Hình"; 
-    document.getElementById('delete-pw').value = ''; document.getElementById('delete-email').value = '';
-    document.getElementById('delete-auth-modal').style.display = 'flex'; 
-};
-
-document.getElementById('btn-admin-inbox').onclick = () => { 
-    pendingAuthAction = 'inbox'; 
-    if (auth.currentUser && !auth.currentUser.isAnonymous) { executePendingAdminAction(); return; }
-    document.getElementById('auth-action-title').innerText = "Mở Hộp Thư 📩"; 
-    document.getElementById('delete-pw').value = ''; document.getElementById('delete-email').value = '';
-    document.getElementById('delete-auth-modal').style.display = 'flex'; 
-};
-
-document.getElementById('btn-delete-cancel').onclick = () => { document.getElementById('delete-auth-modal').style.display = 'none'; currentDeleteId = null; pendingAuthAction = null; importedStudentsCache = [];};
-
-document.getElementById('btn-delete-confirm').onclick = async () => { 
-    const email = document.getElementById('delete-email').value.trim();
-    const pw = document.getElementById('delete-pw').value;
-    if (!email || !pw) { showCustomAlert("Vui lòng nhập Email và Mật khẩu!"); return; }
-    
-    document.getElementById('btn-delete-confirm').innerText = "...";
-    try {
-        await setPersistence(auth, browserSessionPersistence);
-        await signInWithEmailAndPassword(auth, email, pw);
-        document.getElementById('delete-auth-modal').style.display = 'none'; 
-        executePendingAdminAction();
-    } catch (error) {
-        showCustomAlert("⚠️ XÁC THỰC THẤT BẠI! Hãy kiểm tra tài khoản Firebase.");
-    }
-    document.getElementById('btn-delete-confirm').innerText = "XÁC NHẬN";
-};
-
-document.getElementById('btn-admin-open').onclick = () => document.getElementById('admin-auth-modal').style.display = 'flex';
-document.getElementById('btn-auth-cancel').onclick = () => document.getElementById('admin-auth-modal').style.display = 'none';
-document.getElementById('btn-auth-confirm').onclick = () => { if(document.getElementById('admin-pw').value === "112233@@") { document.getElementById('admin-auth-modal').style.display='none'; showScreen('screen-admin'); renderAdmin(); } else showCustomAlert("Sai mật khẩu!"); };
-
-document.getElementById('btn-init-practice').onclick = () => initGame('practice'); document.getElementById('btn-init-test').onclick = () => initGame('test');
-document.getElementById('btn-prev').onclick = () => { if(currentIdx > 0) { currentIdx--; renderQuestion(); window.scrollTo(0,0); } };
-document.getElementById('btn-next').onclick = () => { if(!isCurrentQuestionComplete()) { showCustomAlert(); return; } if(currentIdx < currentExam.length - 1) { currentIdx++; renderQuestion(); window.scrollTo(0,0); } };
-document.getElementById('btn-finish').onclick = () => { if(!isCurrentQuestionComplete()) { showCustomAlert(); return; } document.getElementById('confirm-finish-modal').style.display = 'flex'; };
-document.getElementById('btn-modal-cancel').onclick = () => document.getElementById('confirm-finish-modal').style.display = 'none';
-document.getElementById('btn-modal-confirm').onclick = () => { document.getElementById('confirm-finish-modal').style.display = 'none'; calculateResult(); };
-
-document.getElementById('btn-admin-close').onclick = async () => { 
-    if (auth.currentUser && !auth.currentUser.isAnonymous) {
-        await signOut(auth);
-        await signInAnonymously(auth);
-    }
-    document.getElementById('main-header').style.display = 'none'; 
-    showScreen('screen-start'); 
-    loadStudentList(); // Reload cho học sinh sau khi thoát
-};
-
-document.getElementById('btn-admin-refresh').onclick = () => renderAdmin(); 
-document.getElementById('admin-sort').onchange = () => renderAdmin();
-document.getElementById('admin-filter-mode').onchange = () => renderAdmin(); 
-document.getElementById('admin-filter-class').onchange = () => renderAdmin(); 
-document.getElementById('admin-filter-school').onchange = () => renderAdmin();
-document.getElementById('admin-filter-topic').onchange = () => renderAdmin(); 
-document.getElementById('btn-cheat-submit').onclick = () => { document.getElementById('cheat-modal').style.display = 'none'; };
-document.getElementById('btn-report-open').onclick = () => { document.getElementById('report-modal').style.display = 'flex'; };
-document.getElementById('btn-report-cancel').onclick = () => { document.getElementById('report-modal').style.display = 'none'; };
-
-function processImageFile(file) {
-    if (!file) return; 
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        const img = new Image();
-        img.onload = function() {
-            const canvas = document.createElement('canvas'); const MAX_WIDTH = 800; const MAX_HEIGHT = 800; let width = img.width; let height = img.height;
-            if (width > height) { if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; } } else { if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; } }
-            canvas.width = width; canvas.height = height; const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0, width, height);
-            reportImageBase64 = canvas.toDataURL('image/jpeg', 0.7); 
-            document.getElementById('report-img-preview').src = reportImageBase64; 
-            document.getElementById('report-img-preview').style.display = 'block';
-        }
-        img.src = event.target.result;
-    }
-    reader.readAsDataURL(file);
-}
-
-document.getElementById('report-file').addEventListener('change', function(e) { processImageFile(e.target.files[0]); });
-
-document.getElementById('btn-report-submit').onclick = async () => {
-    const qPos = document.getElementById('report-question').value.trim(); const detail = document.getElementById('report-detail').value.trim();
-    if (!qPos && !detail) { showCustomAlert("Vui lòng nhập ít nhất vị trí lỗi hoặc mô tả!"); return; }
-    const btn = document.getElementById('btn-report-submit'); btn.innerText = "ĐANG GỬI..."; btn.disabled = true;
-    try {
-        await addDoc(collection(db, 'artifacts', appId_fixed, 'public', 'data', collectionReports), { name: window.finalUserData?.name || "Học sinh Ẩn danh", question: qPos, detail: detail, image: reportImageBase64, timestamp: new Date().toISOString() });
-        document.getElementById('report-modal').style.display = 'none'; showCustomAlert("Cảm ơn bạn đã gửi báo lỗi!");
-        document.getElementById('report-question').value = ''; document.getElementById('report-detail').value = ''; document.getElementById('report-file').value = ''; document.getElementById('report-img-preview').style.display = 'none'; reportImageBase64 = "";
-    } catch(e) { showCustomAlert("Có lỗi xảy ra, vui lòng thử lại sau!"); }
-    btn.innerText = "GỬI PHẢN HỒI"; btn.disabled = false;
-};
-
-async function renderAdminInbox() {
-    document.getElementById('admin-inbox-modal').style.display = 'flex'; const listBody = document.getElementById('inbox-list-body'); listBody.innerHTML = "<tr><td colspan='6'>Đang tải hộp thư...</td></tr>";
-    try {
-        const snap = await getDocs(collection(db, 'artifacts', appId_fixed, 'public', 'data', collectionReports));
-        let reports = []; snap.forEach(d => reports.push({id: d.id, ...d.data()})); reports.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
-        if (reports.length === 0) { listBody.innerHTML = "<tr><td colspan='6' style='text-align:center;'>Hộp thư trống. Chưa có báo cáo nào!</td></tr>"; return; }
-        listBody.innerHTML = reports.map(r => `<tr><td><small>${new Date(r.timestamp).toLocaleString('vi-VN')}</small></td><td><b>${r.name}</b></td><td>${r.question || '-'}</td><td>${r.detail || '-'}</td><td>${r.image ? `<button class="btn btn-gray btn-view-img" data-img="${r.image}" style="padding:4px 8px; font-size:0.75rem;">Xem ảnh 🖼️</button>` : '-'}</td><td><button class="btn-del-report" data-id="${r.id}" style="background:var(--danger); color:white; border:none; padding:6px 10px; border-radius:4px; cursor:pointer; font-size: 0.8rem;">Xóa</button></td></tr>`).join('');
-        listBody.querySelectorAll('.btn-del-report').forEach(b => { b.onclick = async () => { if (confirm("Xóa báo cáo lỗi này?")) { b.innerText = "..."; b.disabled = true; await deleteDoc(doc(db, 'artifacts', appId_fixed, 'public', 'data', collectionReports, b.dataset.id)); renderAdminInbox(); } } });
-        listBody.querySelectorAll('.btn-view-img').forEach(b => { b.onclick = () => { document.getElementById('image-viewer-img').src = b.dataset.img; document.getElementById('image-viewer-modal').style.display = 'flex'; } });
-    } catch(e) {}
-}
-document.getElementById('btn-inbox-close').onclick = () => document.getElementById('admin-inbox-modal').style.display = 'none';
-
-document.getElementById('btn-view-review').onclick = () => {
-    const area = document.getElementById('review-area'), content = document.getElementById('review-content'), labels = ['A', 'B', 'C', 'D']; area.style.display = 'block'; let h = '';
-    const norm = (s) => (s || "").toString().trim().replace(',','.');
-    const pMCQ = 0.25;
-    const pShort = 0.25;
-    const tfMapReview = {0: 0, 1: 0.1, 2: 0.25, 3: 0.5, 4: 1.0};
-    currentExam.forEach(q => {
-        let qText = q.type === 'tf' ? `Câu ${q.displayNum} (Đúng/Sai)` : `Câu ${q.displayNum}. ${q.q}`; let itemScore = 0, scoreHTML = '';
-        if(q.type === 'mcq') { itemScore = norm(userAnswers[q.id]||'') === norm(q.a) ? pMCQ : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; } 
-        else if(q.type === 'short') { itemScore = checkShortAns(userAnswers[q.id], q.a) ? pShort : 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ</span>`; } 
-        else if(q.type === 'tf') { let cp = 0; q.sts.forEach((st, si) => { if((userAnswers[q.id]||{})[si] === st.a) cp++; }); itemScore = tfMapReview[cp] || 0; scoreHTML = `<span class="score-badge ${itemScore > 0 ? 'score-plus' : 'score-zero'}">Đúng ${cp}/4 ý (${itemScore > 0 ? '+'+itemScore.toFixed(2) : '0'}đ)</span>`; }
-        h += `<div class="card" style="border-left: 8px solid var(--primary)"><h3>${qText} ${scoreHTML}</h3>`;
-        if(q.type === 'mcq') {
-            (q.shuffledOptions || q.o).forEach((o, idx) => { const isC = norm(o) === norm(q.a), isU = userAnswers[q.id] === o; h += `<div class="option ${isC?'correct':(isU?'wrong':'')}"><b>${labels[idx]}.</b> ${o} ${isC?'✓':(isU?'✗':'')}</div>`; });
-            if(norm(userAnswers[q.id]||'') !== norm(q.a)) h += `<div class="review-choice-box review-wrong" style="padding:10px; border-radius:8px; margin-top:10px; background:#fee2e2; border:1px solid #ef4444;">Bạn chọn: <b>${userAnswers[q.id]||'Chưa chọn'}</b>. Đáp án: <b style="color:#10b981">${q.a}</b></div>`;
-        } else if(q.type === 'tf') {
-            h += `<div style="background:#f1f5f9; padding:15px; border-radius:12px; margin-bottom:15px; font-style:italic;">${q.ctx}</div>`;
-            q.sts.forEach((st, si) => { let uV = (userAnswers[q.id]||{})[si], isC = (uV === st.a); h += `<div class="tf-row" style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f1f5f9;"><span>${st.l} ${st.t}</span><div style="font-size:0.8rem; text-align:right; width: max-content;"><span style="color:${isC?'#10b981':'#ef4444'}">Bạn: <b>${uV===true?'Đúng':(uV===false?'Sai':'?')}</b></span><br><span>Đáp án: <b>${st.a?'Đúng':'Sai'}</b> ${isC?'✓':'✗'}</span></div></div>`; });
-        } else {
-            const isC = checkShortAns(userAnswers[q.id], q.a); h += `<p>Bạn nhập: <b style="color:${isC?'#10b981':'#ef4444'}">${userAnswers[q.id]||'Trống'}</b></p><p>Đáp án đúng: <b style="color:#10b981">${q.a}</b> ${isC?'✓':'✗'}</p>`;
-        }
-        h += `<div class="explanation"><b>Giải thích:</b><br>${q.e}</div></div>`;
-    });
-    content.innerHTML = h; const target = document.getElementById('review-heading'); if (target) { setTimeout(async () => { const y = target.getBoundingClientRect().top + window.pageYOffset - 20; window.scrollTo({ top: y, behavior: 'smooth' }); if(window.MathJax) await MathJax.typesetPromise([content]); autoScaleApp(); }, 150); }
-};
-
-document.getElementById('btn-export-excel').onclick = () => {
-    const dataToExport = window.currentFilteredData || []; if (dataToExport.length === 0) { showCustomAlert("Không có dữ liệu để xuất!"); return; }
-    const excelRows = dataToExport.map((item, index) => ({ "STT": index + 1, "Họ và Tên": item.name || "", "Số báo danh": item.sbd || "", "Lớp": item.class || "", "Trường": item.school || "", "Chuyên đề": item.topic || "N/A", "Chế độ làm": item.mode === 'practice' ? "Luyện tập" : "Kiểm tra", "Điểm số": Number((item.score || 0).toFixed(2)), "Thời gian làm (giây)": item.duration || 0, "Ngày nộp bài": new Date(item.timestamp).toLocaleString('vi-VN') }));
-    const ws = XLSX.utils.json_to_sheet(excelRows); ws['!cols'] = [{wch: 5}, {wch: 25}, {wch: 12}, {wch: 10}, {wch: 25}, {wch: 35}, {wch: 15}, {wch: 10}, {wch: 18}, {wch: 25}];
-    const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "Báo cáo học tập"); XLSX.writeFile(wb, `KetQua_TongHop_${new Date().getTime()}.xlsx`);
-};
-
-function showScreen(id) { document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); document.getElementById(id).classList.add('active'); setTimeout(autoScaleApp, 50); }
-function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
-function startTimer() { clearInterval(timerInt); timerInt = setInterval(() => { timeLeft--; const el = document.getElementById('timer'); if(el) el.innerText = `${Math.floor(timeLeft/60)}:${(timeLeft%60).toString().padStart(2,'0')}`; if(timeLeft <= 0) calculateResult(); }, 1000); }
-
-const triggerCheat = () => { if (canCheckCheat && isQuizRunning && mode === 'test' && !isProcessingCheat) { isProcessingCheat = true; isQuizRunning = false; calculateResult(); document.getElementById('cheat-modal').style.display = 'flex'; } };
-document.addEventListener('visibilitychange', () => { if(canCheckCheat && isQuizRunning && mode === 'test' && document.visibilityState === 'hidden') { triggerCheat(); } });
-window.addEventListener('blur', () => { setTimeout(() => { if (canCheckCheat && isQuizRunning && mode === 'test' && !document.hasFocus()) { triggerCheat(); } }, 200); });
-window.addEventListener('resize', () => { if (canCheckCheat && isQuizRunning && mode === 'test') { if (Math.abs(window.innerWidth - (window.testInitialWidth || window.innerWidth)) > 150) { triggerCheat(); } } });
-
-window.onload = () => { 
-    document.getElementById('main-header').style.display = 'none'; 
-    // Nếu học sinh đã có lưu tên từ phiên trước, tự động nạp (nếu muốn, hiện đã dùng danh sách CSDL để chuẩn hóa)
-};
-</script>
-</body>
-</html>
+            json
